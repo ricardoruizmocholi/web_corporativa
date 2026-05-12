@@ -1,0 +1,67 @@
+/* ══════════════════════════════════════
+   HERO — LANDING
+══════════════════════════════════════ */
+.hero {
+  padding: var(--sp-3xl) 0 var(--sp-2xl);
+  background: var(--c-bg);
+  overflow: visible; position: relative;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 68% 40%, rgba(45,212,191,.1) 0%, transparent 58%);
+}
+
+.hero-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--sp-2xl); align-items: center;
+  position: relative; z-index: 1;
+}
+
+.hero-content { max-width: 520px; }
+.hero-badge   { margin-bottom: var(--sp-lg); }
+.hero h1      { color: var(--c-primary); margin-bottom: var(--sp-md); }
+.hero-sub {
+  font-size: 1.08rem; color: var(--c-text-muted);
+  line-height: 1.76; margin-bottom: var(--sp-xl);
+  max-width: 460px;
+}
+.hero-cta { display: flex; gap: var(--sp-md); flex-wrap: wrap; }
+
+/* ── Dual mockup composition ── */
+.hero-visual {
+  position: relative; min-height: 420px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.hero-desktop {
+  width: 100%;
+  transform: perspective(1200px) rotateY(-4deg) rotateX(2deg);
+  transform-origin: center center;
+  will-change: transform;
+  transition: transform .5s var(--ease);
+}
+
+.hero-mobile {
+  position: absolute; bottom: -36px; right: -12px;
+  width: 170px; z-index: 2;
+  animation: hero-float 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: rotate(-3deg) translateY(0);    }
+  50%       { transform: rotate(-3deg) translateY(-14px); }
+}
+
+/* ══════════════════════════════════════
+   HERO — PAGES (small variant)
+══════════════════════════════════════ */
+.hero-sm {
+  padding: var(--sp-2xl) 0 var(--sp-xl);
+  background: var(--c-bg); text-align: center;
+}
+.hero-sm h1 { color: var(--c-primary); margin-bottom: 14px; }
+.hero-sm p  {
+  color: var(--c-text-muted); font-size: 1.05rem;
+  max-width: 560px; margin: 0 auto;
+}

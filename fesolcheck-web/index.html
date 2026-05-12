@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FesolCheck — Control Horario para Empresas Españolas</title>
+  <meta name="description" content="Software de fichaje digital y control horario para pymes españolas. Cumple el RDL 8/2019. Chatbot IA integrado. Sin instalaciones.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- ━━━━━━ NAVBAR ━━━━━━ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 2L3 6v4c0 3.866 3.13 7.52 7 8.5 3.87-.98 7-4.634 7-8.5V6L10 2z" fill="#2DD4BF"/>
+            <path d="M7 10l2 2 4-4" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="logo-name">Fesol<em>Check</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="funcionalidades.html">Funcionalidades</a></li>
+        <li><a href="precios.html">Precios</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+      <button class="btn btn-accent nav-cta" onclick="tryOpenModal()">Solicitar Demo</button>
+      <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="funcionalidades.html">Funcionalidades</a>
+    <a href="precios.html">Precios</a>
+    <a href="blog.html">Blog</a>
+    <button class="btn btn-accent" onclick="tryOpenModal()">Solicitar Demo</button>
+  </div>
+</nav>
+
+<!-- ━━━━━━ 2 · HERO ━━━━━━ -->
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div class="hero-content fade-up">
+      <div class="hero-badge badge badge-accent">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        Conforme RDL 8/2019
+      </div>
+      <h1>El control horario que tu empresa necesita. Sin complicaciones.</h1>
+      <p class="hero-sub">Digitaliza el fichaje, los cuadrantes y los reportes de tu equipo. Chatbot IA integrado para resolver dudas legales en tiempo real. Todo a 2 clics desde un solo panel.</p>
+      <div class="hero-cta">
+        <button class="btn btn-accent btn-lg" onclick="openModal()">
+          Solicitar demo gratuita
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <a href="funcionalidades.html" class="btn btn-outline btn-lg">Ver funcionalidades</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="mockup-desktop hero-desktop fade-right">
+        <div class="mockup-bar"><span></span><span></span><span></span></div>
+        <div class="mockup-screen">
+          <img src="../img/fichaje_escritorio.png" alt="Panel de fichaje FesolCheck en escritorio">
+        </div>
+      </div>
+      <div class="mockup-mobile hero-mobile">
+        <div class="mockup-notch"></div>
+        <div class="mockup-screen">
+          <img src="../img/fichaje_movil.png" alt="FesolCheck desde el móvil">
+        </div>
+        <div class="mockup-home"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━ 3 · TRUST BAR ━━━━━━ -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-items stagger">
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Cumple RDL 8/2019
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Sin instalaciones
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Todo a 2 clics
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Chatbot IA legal
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        En continuo desarrollo
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ━━━━━━ 4 · PROBLEMA → SOLUCIÓN ━━━━━━ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="tag">Por qué FesolCheck</span>
+      <h2>Tu equipo trabaja. La burocracia, no debería.</h2>
+      <p>Hojas de Excel, correos de turnos, PDFs firmados a mano… FesolCheck elimina toda esa fricción y te deja gestionar personas, no papeleo.</p>
+    </div>
+    <div class="pillars stagger">
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Fichaje sin papel</h3>
+        <p>Entrada, pausa, reanudación y salida con 1 clic. Desde cualquier dispositivo, con restricción por IP.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3>Horarios sin correos</h3>
+        <p>Cuadrantes visibles en tiempo real por cada empleado. Sin preguntas, sin reenvíos, sin confusión.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="16 13 12 17 8 13"/><line x1="12" y1="17" x2="12" y2="7"/></svg>
+        </div>
+        <h3>Reportes sin esfuerzo</h3>
+        <p>PDF oficial RDL 8/2019 en segundos. Listo para la Inspección de Trabajo sin preparación previa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━ 5 · FUNCIONALIDADES ━━━━━━ -->
+<section class="section" id="funcionalidades" style="background:var(--c-bg);">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="tag">Funcionalidades</span>
+      <h2>Todo lo que necesitas en un solo panel</h2>
+      <p>Diseñado para pymes españolas que quieren cumplir la ley sin dedicar horas a la gestión.</p>
+    </div>
+    <div class="features-grid">
+
+      <div class="feat-card fade-up">
+        <div class="feat-body">
+          <div class="feat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Fichaje en 1 clic</h3>
+          <p>Entrada, pausa, reanudación y salida desde cualquier navegador. Restricción por IP o subred — hasta 50 por empresa — para garantizar la ubicación.</p>
+        </div>
+        <div class="feat-thumb">
+          <img src="../img/fichaje_movil.png" alt="Fichaje desde móvil">
+        </div>
+        <a href="funcionalidades.html#fichaje" class="feat-link">Saber más →</a>
+      </div>
+
+      <div class="feat-card fade-up">
+        <div class="feat-body">
+          <div class="feat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Cuadrante de horarios</h3>
+          <p>Asignación individual y en bloque. Plantillas para jornada continua, partida mañana/tarde, festivos y tipos de jornada propios.</p>
+        </div>
+        <div class="feat-thumb">
+          <img src="../img/cuadrante_escritorio.png" alt="Cuadrante de horarios">
+        </div>
+        <a href="funcionalidades.html#cuadrante" class="feat-link">Saber más →</a>
+      </div>
+
+      <div class="feat-card fade-up">
+        <div class="feat-body">
+          <div class="feat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3>Vacaciones y ausencias</h3>
+          <p>Flujo borrador → pendiente → aprobado/rechazado. Cuadrante visual con alerta si la cobertura cae bajo el 33% de la plantilla.</p>
+        </div>
+        <div class="feat-thumb">
+          <img src="../img/calendario_escritorio.png" alt="Gestión de vacaciones">
+        </div>
+        <a href="funcionalidades.html#vacaciones" class="feat-link">Saber más →</a>
+      </div>
+
+      <div class="feat-card fade-up">
+        <div class="feat-body">
+          <div class="feat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="16 13 12 17 8 13"/></svg>
+          </div>
+          <h3>Reportes legales PDF / Excel</h3>
+          <p>Informes oficiales RDL 8/2019 en segundos. Control de horas extra con alertas al acercarse al límite legal de 80 h/año.</p>
+        </div>
+        <div class="feat-thumb">
+          <img src="../img/gestor_nominas_documeto_escritorio.png" alt="Reportes y nóminas">
+        </div>
+        <a href="funcionalidades.html#reportes" class="feat-link">Saber más →</a>
+      </div>
+
+      <div class="feat-card fade-up">
+        <div class="feat-body">
+          <div class="feat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Gestión de empleados</h3>
+          <p>Contratos, nóminas PDF y horas contratadas. Tickets internos RRHH ↔ empleado con categorías, estados y conversación completa.</p>
+        </div>
+        <div class="feat-thumb">
+          <img src="../img/gestion_empleados.png" alt="Gestión de empleados">
+        </div>
+        <a href="funcionalidades.html#empleados" class="feat-link">Saber más →</a>
+      </div>
+
+      <div class="feat-card fade-up">
+        <div class="feat-body">
+          <div class="feat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>Chatbot IA integrado</h3>
+          <p>Pregunta al asistente sobre el uso de la app o sobre normativa laboral. Respuestas sobre RDL 8/2019, LISOS, horas extra y más, sin salir del panel.</p>
+        </div>
+        <div class="feat-thumb">
+          <img src="../img/asistente_ia.png" alt="Asistente IA de FesolCheck">
+        </div>
+        <a href="funcionalidades.html#chatbot-ia" class="feat-link">Saber más →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━ 6 · CHATBOT IA DESTACADO ━━━━━━ -->
+<section class="section section-dark">
+  <div class="container two-col">
+    <div class="col-img fade-left">
+      <div class="mockup-mobile" style="width:260px; margin:0 auto;">
+        <div class="mockup-notch"></div>
+        <div class="mockup-screen">
+          <img src="../img/asistente_ia.png" alt="Chatbot IA de FesolCheck">
+        </div>
+        <div class="mockup-home"></div>
+      </div>
+    </div>
+    <div class="col-content fade-right">
+      <span class="tag">⭐ IA integrada</span>
+      <h2>Tu asistente legal, siempre en el panel</h2>
+      <p class="sub">El chatbot de FesolCheck responde dudas sobre el uso de la app y sobre normativa laboral española: RDL 8/2019, jornadas, vacaciones, horas extra, sanciones de la LISOS y mucho más. Sin salir de la plataforma.</p>
+      <div class="ia-pills">
+        <span class="pill">RDL 8/2019</span>
+        <span class="pill">Horas extra</span>
+        <span class="pill">Vacaciones</span>
+        <span class="pill">Jornadas</span>
+        <span class="pill">Sanciones LISOS</span>
+      </div>
+      <ul class="perk-list">
+        <li class="perk-item">
+          <div class="perk-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><strong>Respuestas en tiempo real</strong><span>Sin esperar al departamento de RRHH ni buscar en documentos extensos.</span></div>
+        </li>
+        <li class="perk-item">
+          <div class="perk-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><strong>Legislación laboral española actualizada</strong><span>Conoce el ET arts. 34-35, el RDL 8/2019, la LISOS y las sanciones vigentes.</span></div>
+        </li>
+        <li class="perk-item">
+          <div class="perk-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><strong>Sin salir de la app</strong><span>Integrado directamente en FesolCheck. Ninguna herramienta externa necesaria.</span></div>
+        </li>
+      </ul>
+      <div style="margin-top:var(--sp-xl);">
+        <a href="funcionalidades.html#chatbot-ia" class="btn btn-accent btn-lg">Ver el chatbot en acción</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━ 7 · NAVEGACIÓN INTUITIVA ━━━━━━ -->
+<section class="section">
+  <div class="container two-col reversed">
+    <div class="col-img fade-right">
+      <div class="mockup-desktop">
+        <div class="mockup-bar"><span></span><span></span><span></span></div>
+        <div class="mockup-screen">
+          <img src="../img/cuadrante_escritorio.png" alt="Panel principal FesolCheck">
+        </div>
+      </div>
+    </div>
+    <div class="col-content fade-left">
+      <span class="tag">Experiencia de uso</span>
+      <h2>Ningún apartado a más de 2 clics</h2>
+      <p class="sub">El panel principal de FesolCheck da acceso directo a todos los módulos. Administradores y empleados lo dominan desde el primer día, sin formación ni tutoriales.</p>
+      <ul class="check-list">
+        <li>
+          <div class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Acceso directo desde el panel principal a cada módulo
+        </li>
+        <li>
+          <div class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Interfaz diferenciada para administrador y empleado
+        </li>
+        <li>
+          <div class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Aprende a usarlo en minutos, sin manual de usuario
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━ 8 · MULTI-DISPOSITIVO ━━━━━━ -->
+<section class="section" style="background:var(--c-bg);">
+  <div class="container two-col">
+    <div class="col-content fade-left">
+      <span class="tag">Acceso universal</span>
+      <h2>Ficha desde donde estés</h2>
+      <p class="sub">FesolCheck funciona al 100% desde el navegador. Ordenador, tablet o móvil. Sin apps que descargar, sin actualizaciones manuales. Si tienes navegador, tienes FesolCheck.</p>
+      <ul class="check-list">
+        <li>
+          <div class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Móvil, tablet o escritorio — la misma experiencia
+        </li>
+        <li>
+          <div class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Sin instalar nada — acceso desde cualquier navegador
+        </li>
+        <li>
+          <div class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Sincronización en tiempo real entre todos los dispositivos
+        </li>
+      </ul>
+    </div>
+    <div class="col-img fade-right">
+      <div class="multi-device-visual">
+        <div class="mockup-desktop">
+          <div class="mockup-bar"><span></span><span></span><span></span></div>
+          <div class="mockup-screen">
+            <img src="../img/cuadrante_escritorio.png" alt="FesolCheck en escritorio">
+          </div>
+        </div>
+        <div class="multi-divider"></div>
+        <div class="mockup-mobile">
+          <div class="mockup-notch"></div>
+          <div class="mockup-screen">
+            <img src="../img/cuadrante_movil.png" alt="FesolCheck en móvil">
+          </div>
+          <div class="mockup-home"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━ 9 · NORMATIVA ━━━━━━ -->
+<section class="section section-gradient">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="tag">Marco legal</span>
+      <h2>Desde 2019, el control horario es obligatorio por ley</h2>
+      <p>El RDL 8/2019 obliga a todas las empresas a registrar la jornada diaria de cada empleado. FesolCheck lo gestiona de forma automática, inmutable y lista para inspección.</p>
+    </div>
+    <div class="norm-cards stagger">
+      <div class="norm-card">
+        <div class="norm-num">01</div>
+        <h3>PDF oficial para inspección</h3>
+        <p>Descarga en cualquier momento el informe con el formato requerido por la ITSS. Sin preparación previa, listo al instante.</p>
+      </div>
+      <div class="norm-card">
+        <div class="norm-num">02</div>
+        <h3>Registro inmutable</h3>
+        <p>Cada fichaje queda sellado con la hora exacta del servidor y la IP de origen. No editable a posteriori — máxima fiabilidad legal.</p>
+      </div>
+      <div class="norm-card">
+        <div class="norm-num">03</div>
+        <h3>0 sanciones de la LISOS</h3>
+        <p>El incumplimiento puede costar hasta 6.250 €. Con FesolCheck, el cumplimiento es automático: los registros se conservan 4 años sin esfuerzo adicional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━ 10 · EN CONTINUO CRECIMIENTO ━━━━━━ -->
+<section class="section" style="background:var(--c-bg); border-top:3px solid var(--c-accent);">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="tag">Producto vivo</span>
+      <h2>FesolCheck evoluciona con tus necesidades</h2>
+      <p>Escuchamos a nuestros clientes. Publicamos mejoras continuamente. Lo que hoy es completo, mañana es aún mejor.</p>
+    </div>
+    <div class="timeline-outer fade-up">
+      <div class="timeline-wrap">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Q1 2025</div>
+          <h4>Chatbot IA integrado <span class="ti-badge ti-done">Disponible</span></h4>
+          <p>Asistente inteligente para dudas operativas y de legislación laboral española.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Q2 2025</div>
+          <h4>Cuadrante de vacaciones con alertas <span class="ti-badge ti-done">Disponible</span></h4>
+          <p>Control de cobertura con umbral del 33% de plantilla y notificaciones automáticas.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Q3 2025</div>
+          <h4>App móvil nativa <span class="ti-badge ti-soon">Próximamente</span></h4>
+          <p>Versión iOS y Android para fichaje con notificaciones push y modo offline.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Q4 2025</div>
+          <h4>Integraciones con nóminas <span class="ti-badge ti-soon">En desarrollo</span></h4>
+          <p>Conexión directa con los principales programas de nóminas del mercado español.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━ 11 · CTA FINAL ━━━━━━ -->
+<section class="cta-final" id="demo">
+  <div class="container">
+    <div class="cta-final-inner fade-up">
+      <h2>¿Listo para cumplir la ley sin el caos?</h2>
+      <p>Únete a las empresas que ya gestionan su control horario sin Excel ni correos. Configuración en menos de 10 minutos, soporte en español incluido.</p>
+      <button class="btn btn-dark btn-lg" onclick="openModal()">
+        Solicitar una demo gratuita →
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━ FOOTER ━━━━━━ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo footer-logo">
+          <div class="logo-mark">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2L3 6v4c0 3.866 3.13 7.52 7 8.5 3.87-.98 7-4.634 7-8.5V6L10 2z" fill="#2DD4BF"/>
+              <path d="M7 10l2 2 4-4" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="logo-name">Fesol<em>Check</em></span>
+        </a>
+        <p class="footer-desc">Software de control horario y RRHH para pymes españolas. Cumplimiento total del RDL 8/2019.</p>
+        <div class="footer-live"><div class="live-dot"></div>En desarrollo activo — nuevas funcionalidades cada trimestre</div>
+      </div>
+      <div class="footer-col">
+        <h4>Producto</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="funcionalidades.html">Funcionalidades</a></li>
+          <li><a href="precios.html">Precios</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="aviso-legal.html">Aviso Legal</a></li>
+          <li><a href="privacidad.html">Política de Privacidad</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:hola@fesolcheck.es">hola@fesolcheck.es</a></li>
+          <li><a href="tel:+34910000000">+34 910 000 000</a></li>
+          <li><a href="index.html" onclick="event.preventDefault();tryOpenModal();">Solicitar demo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 FesolCheck. Todos los derechos reservados.</p>
+      <div class="footer-legal">
+        <a href="aviso-legal.html">Aviso Legal</a>
+        <a href="privacidad.html">Política de Privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ━━━━━━ MODAL DE CONTACTO ━━━━━━ -->
+<div id="modal-contacto" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-card">
+    <button class="modal-close" aria-label="Cerrar">✕</button>
+    <div class="modal-header">
+      <span class="modal-badge">Demo gratuita</span>
+      <h2 id="modal-title">Empieza con FesolCheck hoy</h2>
+      <p>Sin tarjeta de crédito. Sin instalaciones. Te contactamos en 24 h.</p>
+    </div>
+    <form id="form-contacto" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fc-nombre">Nombre *</label>
+          <input id="fc-nombre" name="nombre" type="text" required placeholder="Tu nombre">
+        </div>
+        <div class="form-group">
+          <label for="fc-empresa">Empresa *</label>
+          <input id="fc-empresa" name="empresa" type="text" required placeholder="Nombre de tu empresa">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fc-email">Email corporativo *</label>
+          <input id="fc-email" name="email" type="email" required placeholder="tu@empresa.com">
+        </div>
+        <div class="form-group">
+          <label for="fc-telefono">Teléfono</label>
+          <input id="fc-telefono" name="telefono" type="tel" placeholder="+34 600 000 000">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fc-empleados">Número de empleados *</label>
+        <select id="fc-empleados" name="num_empleados" required>
+          <option value="">Selecciona un rango</option>
+          <option value="1-10">1 – 10 empleados</option>
+          <option value="11-50">11 – 50 empleados</option>
+          <option value="51-200">51 – 200 empleados</option>
+          <option value="200+">Más de 200</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fc-mensaje">¿Qué necesitas? (opcional)</label>
+        <textarea id="fc-mensaje" name="mensaje" rows="3" placeholder="Cuéntanos tu situación actual..."></textarea>
+      </div>
+      <div class="form-check">
+        <input id="fc-privacidad" name="privacidad" type="checkbox" required>
+        <label for="fc-privacidad">
+          Acepto la <a href="privacidad.html" target="_blank">política de privacidad</a>
+        </label>
+      </div>
+      <button type="submit" class="btn-submit">Solicitar demo gratuita →</button>
+      <p class="form-footer">✓ Respuesta en menos de 24 h &nbsp;·&nbsp; ✓ Sin compromiso</p>
+    </form>
+    <div id="form-success" class="form-success hidden">
+      <div class="success-icon">✓</div>
+      <h3>¡Solicitud recibida!</h3>
+      <p>Te contactaremos en menos de 24 horas. Revisa también tu carpeta de spam.</p>
+    </div>
+  </div>
+</div>
+
+<script src="js/navbar.js"></script>
+<script src="js/scroll-animations.js"></script>
+<script src="js/mockups.js"></script>
+<script src="js/modal.js"></script>
+</body>
+</html>

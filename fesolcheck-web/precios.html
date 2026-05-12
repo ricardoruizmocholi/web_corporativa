@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precios — FesolCheck</title>
+  <meta name="description" content="Planes de precios simples y sin sorpresas para el control horario de tu empresa. Empieza gratis y escala cuando necesites.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 2L3 6v4c0 3.866 3.13 7.52 7 8.5 3.87-.98 7-4.634 7-8.5V6L10 2z" fill="#2DD4BF"/>
+            <path d="M7 10l2 2 4-4" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="logo-name">Fesol<em>Check</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="funcionalidades.html">Funcionalidades</a></li>
+        <li><a href="precios.html" class="active">Precios</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+      <button class="btn btn-accent nav-cta" onclick="tryOpenModal()">Solicitar Demo</button>
+      <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="funcionalidades.html">Funcionalidades</a>
+    <a href="precios.html">Precios</a>
+    <a href="blog.html">Blog</a>
+    <button class="btn btn-accent" onclick="tryOpenModal()">Solicitar Demo</button>
+  </div>
+</nav>
+
+<!-- HERO SM -->
+<section class="hero-sm">
+  <div class="container">
+    <span class="tag">Planes simples, sin sorpresas</span>
+    <h1>El precio justo para tu equipo</h1>
+    <p>Sin permanencia. Sin letra pequeña. Cancela cuando quieras.</p>
+  </div>
+</section>
+
+<!-- PRICING CARDS -->
+<section class="section" style="background:var(--c-bg);">
+  <div class="container">
+    <div class="pricing-grid fade-up">
+
+      <div class="price-card">
+        <h3>Básico</h3>
+        <p class="price-desc">Para equipos pequeños que quieren cumplir la ley sin complicarse.</p>
+        <div class="price-amount">
+          <span class="price-from">Desde</span>
+          <strong>19€</strong><span>/mes</span>
+        </div>
+        <ul class="price-features">
+          <li class="price-feature"><span class="pf-check">✓</span> Hasta 10 empleados</li>
+          <li class="price-feature"><span class="pf-check">✓</span> Fichaje digital con 1 clic</li>
+          <li class="price-feature"><span class="pf-check">✓</span> Reportes PDF oficiales RDL 8/2019</li>
+          <li class="price-feature"><span class="pf-check">✓</span> Exportación Excel</li>
+          <li class="price-feature"><span class="pf-check">✓</span> Restricción por IP (hasta 10)</li>
+          <li class="price-feature"><span class="pf-dash">—</span> <span style="color:var(--c-text-muted);">Chatbot IA</span></li>
+          <li class="price-feature"><span class="pf-dash">—</span> <span style="color:var(--c-text-muted);">Tickets RRHH</span></li>
+        </ul>
+        <button class="btn btn-outline btn-full" onclick="openModal()">Solicitar demo →</button>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-badge">Más popular</div>
+        <h3>Profesional</h3>
+        <p class="price-desc">La solución completa para pymes que quieren gestionar sin fricciones.</p>
+        <div class="price-amount">
+          <span class="price-from">Desde</span>
+          <strong>49€</strong><span>/mes</span>
+        </div>
+        <ul class="price-features">
+          <li class="price-feature"><span class="pf-check">✓</span> Hasta 50 empleados</li>
+          <li class="price-feature"><span class="pf-check">✓</span> Todos los módulos incluidos</li>
+          <li class="price-feature"><span class="pf-check">✓</span> Chatbot IA legal integrado</li>
+          <li class="price-feature"><span class="pf-check">✓</span> Cuadrante de vacaciones</li>
+          <li class="price-feature"><span class="pf-check">✓</span> Tickets RRHH ↔ empleado</li>
+          <li class="price-feature"><span class="pf-check">✓</span> Restricción por IP (hasta 50)</li>
+          <li class="price-feature"><span class="pf-check">✓</span> Soporte prioritario en español</li>
+        </ul>
+        <button class="btn btn-accent btn-full" onclick="openModal()">Solicitar demo →</button>
+      </div>
+
+      <div class="price-card">
+        <h3>Empresa</h3>
+        <p class="price-desc">Para organizaciones grandes con necesidades específicas y volumen elevado.</p>
+        <div class="price-amount">
+          <span class="price-from">Precio</span>
+          <strong style="font-size:1.6rem;">A consultar</strong>
+        </div>
+        <ul class="price-features">
+          <li class="price-feature"><span class="pf-check">✓</span> Empleados ilimitados</li>
+          <li class="price-feature"><span class="pf-check">✓</span> Todos los módulos incluidos</li>
+          <li class="price-feature"><span class="pf-check">✓</span> Módulos y flujos personalizados</li>
+          <li class="price-feature"><span class="pf-check">✓</span> SLA garantizado</li>
+          <li class="price-feature"><span class="pf-check">✓</span> Gestor de cuenta dedicado</li>
+          <li class="price-feature"><span class="pf-check">✓</span> Integración con sistemas propios</li>
+          <li class="price-feature"><span class="pf-check">✓</span> Formación presencial o remota</li>
+        </ul>
+        <button class="btn btn-primary btn-full" onclick="openModal()">Contactar ventas →</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="section">
+  <div class="container">
+    <div class="section-head fade-up">
+      <h2>Comparativa de planes</h2>
+      <p>Todo lo que incluye cada plan de un vistazo.</p>
+    </div>
+    <div class="compare-table-wrap fade-up">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th style="width:40%;">Funcionalidad</th>
+            <th>Básico</th>
+            <th>Profesional</th>
+            <th>Empresa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="feat-col">Fichaje digital 1 clic</td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+          <tr><td class="feat-col">Reportes PDF RDL 8/2019</td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+          <tr><td class="feat-col">Exportación Excel</td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+          <tr><td class="feat-col">Restricción por IP</td><td>Hasta 10</td><td>Hasta 50</td><td>Ilimitadas</td></tr>
+          <tr><td class="feat-col">Cuadrante de horarios</td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+          <tr><td class="feat-col">Vacaciones y ausencias</td><td><span class="cr">—</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+          <tr><td class="feat-col">Chatbot IA legal</td><td><span class="cr">—</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+          <tr><td class="feat-col">Tickets RRHH ↔ empleado</td><td><span class="cr">—</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+          <tr><td class="feat-col">Gestión de nóminas PDF</td><td><span class="cr">—</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+          <tr><td class="feat-col">Módulos personalizados</td><td><span class="cr">—</span></td><td><span class="cr">—</span></td><td><span class="ck">✓</span></td></tr>
+          <tr><td class="feat-col">Soporte prioritario</td><td>Estándar</td><td>Prioritario</td><td>Dedicado</td></tr>
+          <tr><td class="feat-col">Número de empleados</td><td>Hasta 10</td><td>Hasta 50</td><td>Ilimitados</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--c-bg);">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="tag">Preguntas frecuentes</span>
+      <h2>Resolvemos tus dudas</h2>
+    </div>
+    <div class="faq-list fade-up">
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Hay permanencia o contrato mínimo?
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>No. FesolCheck es un servicio mensual sin permanencia. Puedes cancelar en cualquier momento desde tu panel de administración, sin penalizaciones ni trámites adicionales. Si cancelas antes de fin de mes, sigues teniendo acceso hasta el último día del período pagado.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Puedo cambiar de plan en cualquier momento?
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Sí. Puedes subir o bajar de plan cuando lo necesites. Si subes de plan, el cambio es inmediato y se prorratea el importe. Si bajas, el cambio se aplica al inicio del siguiente período de facturación. Todos tus datos se conservan intactos en cualquier caso.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Cómo ayuda FesolCheck a cumplir el RDL 8/2019?
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>El RDL 8/2019 obliga a registrar diariamente la jornada de cada empleado, conservar los registros durante 4 años y ponerlos a disposición de la Inspección de Trabajo cuando lo requiera. FesolCheck automatiza el registro, genera el PDF oficial en el formato exigido por la ITSS y conserva los datos el tiempo estipulado por ley — todo sin intervención manual.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          ¿Tienen soporte en español?
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Sí, todo nuestro equipo de soporte opera en español. Puedes contactarnos por email y en horario comercial por teléfono. Los planes Profesional y Empresa tienen soporte prioritario con tiempos de respuesta garantizados. Además, el chatbot IA dentro de la plataforma resuelve al instante las dudas más habituales sobre la app y sobre la legislación laboral.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="container">
+    <div class="cta-final-inner fade-up">
+      <h2>Empieza hoy con 14 días gratis</h2>
+      <p>Sin tarjeta de crédito. Te lo configuramos nosotros. Soporte en español incluido.</p>
+      <button class="btn btn-dark btn-lg" onclick="openModal()">Solicitar demo gratuita →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo footer-logo">
+          <div class="logo-mark">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2L3 6v4c0 3.866 3.13 7.52 7 8.5 3.87-.98 7-4.634 7-8.5V6L10 2z" fill="#2DD4BF"/>
+              <path d="M7 10l2 2 4-4" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="logo-name">Fesol<em>Check</em></span>
+        </a>
+        <p class="footer-desc">Software de control horario y RRHH para pymes españolas.</p>
+        <div class="footer-live"><div class="live-dot"></div>En desarrollo activo — nuevas funcionalidades cada trimestre</div>
+      </div>
+      <div class="footer-col">
+        <h4>Producto</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="funcionalidades.html">Funcionalidades</a></li>
+          <li><a href="precios.html">Precios</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="aviso-legal.html">Aviso Legal</a></li>
+          <li><a href="privacidad.html">Política de Privacidad</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:hola@fesolcheck.es">hola@fesolcheck.es</a></li>
+          <li><a href="tel:+34910000000">+34 910 000 000</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 FesolCheck. Todos los derechos reservados.</p>
+      <div class="footer-legal">
+        <a href="aviso-legal.html">Aviso Legal</a>
+        <a href="privacidad.html">Política de Privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div id="modal-contacto" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-card">
+    <button class="modal-close" aria-label="Cerrar">✕</button>
+    <div class="modal-header">
+      <span class="modal-badge">Demo gratuita</span>
+      <h2 id="modal-title">Empieza con FesolCheck hoy</h2>
+      <p>Sin tarjeta de crédito. Sin instalaciones. Te contactamos en 24 h.</p>
+    </div>
+    <form id="form-contacto" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fc-nombre">Nombre *</label>
+          <input id="fc-nombre" name="nombre" type="text" required placeholder="Tu nombre">
+        </div>
+        <div class="form-group">
+          <label for="fc-empresa">Empresa *</label>
+          <input id="fc-empresa" name="empresa" type="text" required placeholder="Nombre de tu empresa">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fc-email">Email corporativo *</label>
+          <input id="fc-email" name="email" type="email" required placeholder="tu@empresa.com">
+        </div>
+        <div class="form-group">
+          <label for="fc-telefono">Teléfono</label>
+          <input id="fc-telefono" name="telefono" type="tel" placeholder="+34 600 000 000">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fc-empleados">Número de empleados *</label>
+        <select id="fc-empleados" name="num_empleados" required>
+          <option value="">Selecciona un rango</option>
+          <option value="1-10">1 – 10 empleados</option>
+          <option value="11-50">11 – 50 empleados</option>
+          <option value="51-200">51 – 200 empleados</option>
+          <option value="200+">Más de 200</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fc-mensaje">¿Qué necesitas? (opcional)</label>
+        <textarea id="fc-mensaje" name="mensaje" rows="3" placeholder="Cuéntanos tu situación actual..."></textarea>
+      </div>
+      <div class="form-check">
+        <input id="fc-privacidad" name="privacidad" type="checkbox" required>
+        <label for="fc-privacidad">Acepto la <a href="privacidad.html" target="_blank">política de privacidad</a></label>
+      </div>
+      <button type="submit" class="btn-submit">Solicitar demo gratuita →</button>
+      <p class="form-footer">✓ Respuesta en menos de 24 h &nbsp;·&nbsp; ✓ Sin compromiso</p>
+    </form>
+    <div id="form-success" class="form-success hidden">
+      <div class="success-icon">✓</div>
+      <h3>¡Solicitud recibida!</h3>
+      <p>Te contactaremos en menos de 24 horas.</p>
+    </div>
+  </div>
+</div>
+
+<script src="js/navbar.js"></script>
+<script src="js/scroll-animations.js"></script>
+<script src="js/mockups.js"></script>
+<script src="js/modal.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+/* ══════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════ */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--c-border);
+  transition: box-shadow var(--dur) var(--ease);
+}
+.navbar.scrolled { box-shadow: var(--shadow-md); }
+
+.navbar-inner {
+  display: flex; align-items: center; height: 68px; gap: var(--sp-md);
+}
+
+.logo {
+  display: flex; align-items: center; gap: var(--sp-sm);
+  text-decoration: none; flex-shrink: 0;
+}
+.logo-mark {
+  width: 34px; height: 34px; background: var(--c-primary);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+}
+.logo-name {
+  font-size: 1.15rem; font-weight: var(--fw-black);
+  color: var(--c-primary); letter-spacing: -.02em;
+}
+.logo-name em { color: var(--c-accent); font-style: normal; }
+
+.nav-links {
+  display: flex; align-items: center; gap: 28px;
+  margin-left: auto; margin-right: var(--sp-md);
+}
+.nav-links a {
+  text-decoration: none; font-size: .9rem; font-weight: var(--fw-semi);
+  color: var(--c-text-muted);
+  transition: color var(--dur) var(--ease);
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--c-primary); }
+
+.nav-cta { flex-shrink: 0; }
+
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; padding: 4px; flex-shrink: 0;
+}
+.hamburger span {
+  width: 22px; height: 2px;
+  background: var(--c-primary); border-radius: 2px;
+  transition: all .3s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none; flex-direction: column;
+  position: absolute; top: 68px; left: 0; right: 0;
+  background: var(--c-surface);
+  border-bottom: 1px solid var(--c-border);
+  padding: var(--sp-md) var(--sp-lg);
+  box-shadow: var(--shadow-md);
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  text-decoration: none; color: var(--c-text);
+  font-weight: var(--fw-semi); font-size: .95rem;
+  padding: 13px 0; border-bottom: 1px solid var(--c-border);
+}
+.mobile-menu a:last-of-type { border-bottom: none; }
+.mobile-menu .btn {
+  margin-top: var(--sp-md);
+  align-self: stretch; justify-content: center;
+}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+.footer { background: var(--c-bg-dark); padding: 60px 0 0; }
+
+.footer-top {
+  display: grid; grid-template-columns: 1.7fr 1fr 1fr 1fr;
+  gap: var(--sp-xl); padding-bottom: var(--sp-2xl);
+}
+
+.footer-logo .logo-name { color: var(--c-surface); }
+
+.footer-desc {
+  font-size: .87rem; color: rgba(255,255,255,.48);
+  line-height: 1.72; margin-top: var(--sp-md);
+}
+
+.footer-live {
+  display: inline-flex; align-items: center; gap: 7px;
+  margin-top: var(--sp-md); font-size: .75rem;
+  font-weight: var(--fw-semi); color: var(--c-accent);
+  background: rgba(45,212,191,.1);
+  border: 1px solid rgba(45,212,191,.22);
+  padding: 4px 11px; border-radius: var(--radius-sm);
+}
+.live-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--c-accent); flex-shrink: 0;
+}
+
+.footer-col h4 {
+  font-size: .78rem; font-weight: var(--fw-bold);
+  text-transform: uppercase; letter-spacing: .07em;
+  color: rgba(255,255,255,.4); margin-bottom: var(--sp-md);
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul a {
+  text-decoration: none; font-size: .88rem;
+  color: rgba(255,255,255,.52);
+  transition: color var(--dur);
+}
+.footer-col ul a:hover { color: var(--c-accent); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding: 22px 0;
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 10px;
+}
+.footer-bottom p { font-size: .8rem; color: rgba(255,255,255,.34); }
+.footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-legal a {
+  font-size: .8rem; color: rgba(255,255,255,.34);
+  text-decoration: none; transition: color var(--dur);
+}
+.footer-legal a:hover { color: rgba(255,255,255,.65); }

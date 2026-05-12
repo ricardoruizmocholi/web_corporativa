@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funcionalidades — FesolCheck</title>
+  <meta name="description" content="Todos los módulos de FesolCheck: fichaje digital, cuadrantes, vacaciones, reportes legales, gestión de empleados y chatbot IA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 2L3 6v4c0 3.866 3.13 7.52 7 8.5 3.87-.98 7-4.634 7-8.5V6L10 2z" fill="#2DD4BF"/>
+            <path d="M7 10l2 2 4-4" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="logo-name">Fesol<em>Check</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="funcionalidades.html" class="active">Funcionalidades</a></li>
+        <li><a href="precios.html">Precios</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+      <button class="btn btn-accent nav-cta" onclick="tryOpenModal()">Solicitar Demo</button>
+      <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="funcionalidades.html">Funcionalidades</a>
+    <a href="precios.html">Precios</a>
+    <a href="blog.html">Blog</a>
+    <button class="btn btn-accent" onclick="tryOpenModal()">Solicitar Demo</button>
+  </div>
+</nav>
+
+<!-- HERO SM -->
+<section class="hero-sm">
+  <div class="container">
+    <span class="tag">Todo lo que FesolCheck hace por ti</span>
+    <h1>Funcionalidades completas para tu equipo</h1>
+    <p>Cada módulo está diseñado para eliminar fricción. Sin aprendizaje previo, sin configuraciones complejas.</p>
+  </div>
+</section>
+
+<!-- MODULES -->
+<main class="modules-wrap">
+
+  <!-- 1 · FICHAJE -->
+  <div class="module-section" id="fichaje">
+    <div class="container">
+      <div class="module-grid">
+        <div class="col-content fade-left">
+          <span class="module-tag">Módulo 1</span>
+          <h2>Fichaje digital en 1 clic</h2>
+          <p class="desc">Entrada, pausa, reanudación y salida con un solo clic desde el navegador. Compatible con ordenadores, tablets y smartphones sin necesidad de instalar ninguna aplicación. El sistema registra automáticamente la hora exacta del servidor, la IP del dispositivo y el usuario, generando un registro inmutable y conforme al RDL 8/2019. La jornada partida permite dos tramos mañana y tarde independientes con sus propios registros de inicio y fin.</p>
+          <ul class="module-bullets">
+            <li class="module-bullet"><div class="bullet-dot"></div>Restricción de fichaje por IP o subred — hasta 50 por empresa</li>
+            <li class="module-bullet"><div class="bullet-dot"></div>Jornada partida con doble tramo mañana/tarde independiente</li>
+            <li class="module-bullet"><div class="bullet-dot"></div>Modificación de fichajes con justificación y trazabilidad</li>
+            <li class="module-bullet"><div class="bullet-dot"></div>Notificaciones automáticas al fichar entrada y salida</li>
+          </ul>
+          <button class="btn btn-accent" onclick="tryOpenModal()">Solicitar demo →</button>
+        </div>
+        <div class="col-img fade-right">
+          <div class="mockup-desktop">
+            <div class="mockup-bar"><span></span><span></span><span></span></div>
+            <div class="mockup-screen">
+              <img src="../img/fichaje_escritorio.png" alt="Fichaje en escritorio">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:var(--sp-xl); display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-lg);">
+        <div class="mockup-desktop">
+          <div class="mockup-bar"><span></span><span></span><span></span></div>
+          <div class="mockup-screen"><img src="../img/modificar_fichaje_escritorio.png" alt="Modificar fichaje"></div>
+        </div>
+        <div class="mockup-desktop">
+          <div class="mockup-bar"><span></span><span></span><span></span></div>
+          <div class="mockup-screen"><img src="../img/acceso_ip_escritorio.png" alt="Control de acceso por IP"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 · CUADRANTE -->
+  <div class="module-section" id="cuadrante" style="background:var(--c-bg);">
+    <div class="container">
+      <div class="module-grid reversed">
+        <div class="col-img fade-left">
+          <div class="mockup-desktop">
+            <div class="mockup-bar"><span></span><span></span><span></span></div>
+            <div class="mockup-screen">
+              <img src="../img/cuadrante_escritorio.png" alt="Cuadrante de horarios">
+            </div>
+          </div>
+        </div>
+        <div class="col-content fade-right">
+          <span class="module-tag">Módulo 2</span>
+          <h2>Cuadrante de horarios</h2>
+          <p class="desc">Diseña y publica los horarios de tu equipo de forma individual o en bloque. Crea plantillas de jornada reutilizables — continua, partida, festivos — y asígnalas con un clic a uno o a todos los empleados a la vez. Cada trabajador ve su jornada asignada desde su panel, sin necesidad de preguntar. Los cambios se propagan en tiempo real.</p>
+          <ul class="module-bullets">
+            <li class="module-bullet"><div class="bullet-dot"></div>Asignación individual y masiva de turnos</li>
+            <li class="module-bullet"><div class="bullet-dot"></div>Plantillas personalizadas: continua, partida M/T, festivo, libre, médico</li>
+            <li class="module-bullet"><div class="bullet-dot"></div>Vista semanal y mensual para administradores</li>
+            <li class="module-bullet"><div class="bullet-dot"></div>Creador visual de plantillas de jornada propias</li>
+          </ul>
+          <button class="btn btn-accent" onclick="tryOpenModal()">Solicitar demo →</button>
+        </div>
+      </div>
+      <div style="margin-top:var(--sp-xl);">
+        <div class="mockup-desktop">
+          <div class="mockup-bar"><span></span><span></span><span></span></div>
+          <div class="mockup-screen"><img src="../img/Creador_plantillas_jornada.png" alt="Creador de plantillas"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 · VACACIONES -->
+  <div class="module-section" id="vacaciones">
+    <div class="container">
+      <div class="module-grid">
+        <div class="col-content fade-left">
+          <span class="module-tag">Módulo 3</span>
+          <h2>Vacaciones y ausencias</h2>
+          <p class="desc">Gestiona todo el ciclo de solicitudes de ausencia desde un único panel. El empleado crea la solicitud en estado borrador, la envía al responsable y recibe la aprobación o el rechazo con comentarios. El cuadrante de vacaciones muestra de forma visual la cobertura del equipo y lanza una alerta automática si el número de ausentes simultáneas supera el umbral configurado — por defecto, el 33% de la plantilla.</p>
+          <ul class="module-bullets">
+            <li class="module-bullet"><div class="bullet-dot"></div>Flujo completo: borrador → pendiente → aprobado/rechazado</li>
+            <li class="module-bullet"><div class="bullet-dot"></div>Vista mensual con cobertura por departamento</li>
+            <li class="module-bullet"><div class="bullet-dot"></div>Alerta automática al superar el umbral de ausencias simultáneas</li>
+            <li class="module-bullet"><div class="bullet-dot"></div>Tipos: vacaciones, médico, libre, festivo y tipos propios</li>
+          </ul>
+          <button class="btn btn-accent" onclick="tryOpenModal()">Solicitar demo →</button>
+        </div>
+        <div class="col-img fade-right">
+          <div class="mockup-desktop">
+            <div class="mockup-bar"><span></span><span></span><span></span></div>
+            <div class="mockup-screen">
+              <img src="../img/calendario_escritorio.png" alt="Calendario de vacaciones">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:var(--sp-xl);">
+        <div class="mockup-desktop">
+          <div class="mockup-bar"><span></span><span></span><span></span></div>
+          <div class="mockup-screen"><img src="../img/calendario_movil.png" alt="Vacaciones en móvil" style="max-height:360px;object-fit:contain;background:var(--c-bg);"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 · REPORTES -->
+  <div class="module-section" id="reportes" style="background:var(--c-bg);">
+    <div class="container">
+      <div class="module-grid reversed">
+        <div class="col-img fade-left">
+          <div class="mockup-desktop">
+            <div class="mockup-bar"><span></span><span></span><span></span></div>
+            <div class="mockup-screen">
+              <img src="../img/gestor_nominas_documeto_escritorio.png" alt="Reportes legales">
+            </div>
+          </div>
+        </div>
+        <div class="col-content fade-right">
+          <span class="module-tag">Módulo 4</span>
+          <h2>Reportes legales PDF / Excel</h2>
+          <p class="desc">Genera en segundos el informe oficial de control horario en el formato exigido por la Inspección de Trabajo y Seguridad Social (ITSS), conforme al RDL 8/2019. Exporta también a Excel para análisis internos. El módulo controla el cómputo de horas extra de cada empleado y emite una alerta cuando se acerca al límite legal de 80 horas anuales. Las nóminas en PDF quedan almacenadas y disponibles en el perfil de cada trabajador.</p>
+          <ul class="module-bullets">
+            <li class="module-bullet"><div class="bullet-dot"></div>PDF oficial RDL 8/2019 listo para inspección</li>
+            <li class="module-bullet"><div class="bullet-dot"></div>Exportación Excel con filtros de rango y empleado</li>
+            <li class="module-bullet"><div class="bullet-dot"></div>Control de horas extra con alerta al límite de 80 h/año</li>
+            <li class="module-bullet"><div class="bullet-dot"></div>Archivo de nóminas PDF en el perfil del empleado</li>
+          </ul>
+          <button class="btn btn-accent" onclick="tryOpenModal()">Solicitar demo →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 · EMPLEADOS -->
+  <div class="module-section" id="empleados">
+    <div class="container">
+      <div class="module-grid">
+        <div class="col-content fade-left">
+          <span class="module-tag">Módulo 5</span>
+          <h2>Gestión de empleados</h2>
+          <p class="desc">Mantén actualizado el perfil laboral de cada trabajador: tipo de contrato, horas semanales contratadas, fecha de alta y baja, y documentos adjuntos. El sistema de tickets internos permite una comunicación directa entre RRHH y empleado — con categorías, estados y hilo de conversación — sin necesidad de correo electrónico externo. Las notificaciones automáticas mantienen a todos informados de los cambios relevantes.</p>
+          <ul class="module-bullets">
+            <li class="module-bullet"><div class="bullet-dot"></div>Ficha completa: contratos, horas contratadas, documentación</li>
+            <li class="module-bullet"><div class="bullet-dot"></div>Tickets RRHH ↔ empleado con categorías y estados</li>
+            <li class="module-bullet"><div class="bullet-dot"></div>Hilo de conversación con historial completo</li>
+            <li class="module-bullet"><div class="bullet-dot"></div>Notificaciones automáticas del sistema</li>
+          </ul>
+          <button class="btn btn-accent" onclick="tryOpenModal()">Solicitar demo →</button>
+        </div>
+        <div class="col-img fade-right">
+          <div class="mockup-desktop">
+            <div class="mockup-bar"><span></span><span></span><span></span></div>
+            <div class="mockup-screen">
+              <img src="../img/gestion_empleados.png" alt="Gestión de empleados">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:var(--sp-xl); display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-lg);">
+        <div class="mockup-desktop">
+          <div class="mockup-bar"><span></span><span></span><span></span></div>
+          <div class="mockup-screen"><img src="../img/gestor_tickest_escritorio.png" alt="Sistema de tickets"></div>
+        </div>
+        <div class="mockup-desktop">
+          <div class="mockup-bar"><span></span><span></span><span></span></div>
+          <div class="mockup-screen"><img src="../img/tickest_movil.png" alt="Tickets desde móvil" style="max-height:320px;object-fit:contain;background:var(--c-bg);"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 · CHATBOT IA -->
+  <div class="module-section" id="chatbot-ia" style="background:var(--c-bg-dark);">
+    <div class="container">
+      <div class="module-grid reversed">
+        <div class="col-img fade-left">
+          <div class="mockup-desktop" style="border-color:rgba(45,212,191,.4);">
+            <div class="mockup-bar"><span></span><span></span><span></span></div>
+            <div class="mockup-screen">
+              <img src="../img/asistente_ia.png" alt="Chatbot IA FesolCheck">
+            </div>
+          </div>
+        </div>
+        <div class="col-content fade-right" style="color:var(--c-surface);">
+          <span class="module-tag" style="color:var(--c-accent);">Módulo 6 · ⭐ Exclusivo</span>
+          <h2 style="color:var(--c-surface);">Chatbot IA integrado</h2>
+          <p class="desc" style="color:rgba(255,255,255,.7);">El asistente inteligente de FesolCheck responde en tiempo real cualquier duda relacionada con el uso de la plataforma y con la normativa laboral española vigente. Conoce en profundidad el RDL 8/2019, los artículos 34 y 35 del Estatuto de los Trabajadores, el régimen sancionador de la LISOS y los criterios interpretativos de la Inspección de Trabajo. No sustituye al asesor laboral, pero acelera enormemente la resolución de consultas del día a día.</p>
+          <ul class="module-bullets" style="margin-bottom:var(--sp-lg);">
+            <li class="module-bullet" style="color:rgba(255,255,255,.88);"><div class="bullet-dot"></div>Respuestas instantáneas sobre uso de la app</li>
+            <li class="module-bullet" style="color:rgba(255,255,255,.88);"><div class="bullet-dot"></div>Legislación: RDL 8/2019, ET arts. 34-35, LISOS</li>
+            <li class="module-bullet" style="color:rgba(255,255,255,.88);"><div class="bullet-dot"></div>Consultas sobre vacaciones, jornadas y sanciones</li>
+            <li class="module-bullet" style="color:rgba(255,255,255,.88);"><div class="bullet-dot"></div>Sin salir del panel — integrado nativamente</li>
+          </ul>
+          <button class="btn btn-accent btn-lg" onclick="tryOpenModal()">Solicitar demo →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="container">
+    <div class="cta-final-inner fade-up">
+      <h2>¿Lo quieres todo? Solicita la demo.</h2>
+      <p>Te mostramos todos los módulos en funcionamiento real. Sin compromiso, en menos de 30 minutos.</p>
+      <button class="btn btn-dark btn-lg" onclick="openModal()">Solicitar demo gratuita →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo footer-logo">
+          <div class="logo-mark">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2L3 6v4c0 3.866 3.13 7.52 7 8.5 3.87-.98 7-4.634 7-8.5V6L10 2z" fill="#2DD4BF"/>
+              <path d="M7 10l2 2 4-4" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="logo-name">Fesol<em>Check</em></span>
+        </a>
+        <p class="footer-desc">Software de control horario y RRHH para pymes españolas. Cumplimiento total del RDL 8/2019.</p>
+        <div class="footer-live"><div class="live-dot"></div>En desarrollo activo — nuevas funcionalidades cada trimestre</div>
+      </div>
+      <div class="footer-col">
+        <h4>Producto</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="funcionalidades.html">Funcionalidades</a></li>
+          <li><a href="precios.html">Precios</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="aviso-legal.html">Aviso Legal</a></li>
+          <li><a href="privacidad.html">Política de Privacidad</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:hola@fesolcheck.es">hola@fesolcheck.es</a></li>
+          <li><a href="tel:+34910000000">+34 910 000 000</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 FesolCheck. Todos los derechos reservados.</p>
+      <div class="footer-legal">
+        <a href="aviso-legal.html">Aviso Legal</a>
+        <a href="privacidad.html">Política de Privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div id="modal-contacto" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-card">
+    <button class="modal-close" aria-label="Cerrar">✕</button>
+    <div class="modal-header">
+      <span class="modal-badge">Demo gratuita</span>
+      <h2 id="modal-title">Empieza con FesolCheck hoy</h2>
+      <p>Sin tarjeta de crédito. Sin instalaciones. Te contactamos en 24 h.</p>
+    </div>
+    <form id="form-contacto" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fc-nombre">Nombre *</label>
+          <input id="fc-nombre" name="nombre" type="text" required placeholder="Tu nombre">
+        </div>
+        <div class="form-group">
+          <label for="fc-empresa">Empresa *</label>
+          <input id="fc-empresa" name="empresa" type="text" required placeholder="Nombre de tu empresa">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fc-email">Email corporativo *</label>
+          <input id="fc-email" name="email" type="email" required placeholder="tu@empresa.com">
+        </div>
+        <div class="form-group">
+          <label for="fc-telefono">Teléfono</label>
+          <input id="fc-telefono" name="telefono" type="tel" placeholder="+34 600 000 000">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fc-empleados">Número de empleados *</label>
+        <select id="fc-empleados" name="num_empleados" required>
+          <option value="">Selecciona un rango</option>
+          <option value="1-10">1 – 10 empleados</option>
+          <option value="11-50">11 – 50 empleados</option>
+          <option value="51-200">51 – 200 empleados</option>
+          <option value="200+">Más de 200</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fc-mensaje">¿Qué necesitas? (opcional)</label>
+        <textarea id="fc-mensaje" name="mensaje" rows="3" placeholder="Cuéntanos tu situación actual..."></textarea>
+      </div>
+      <div class="form-check">
+        <input id="fc-privacidad" name="privacidad" type="checkbox" required>
+        <label for="fc-privacidad">Acepto la <a href="privacidad.html" target="_blank">política de privacidad</a></label>
+      </div>
+      <button type="submit" class="btn-submit">Solicitar demo gratuita →</button>
+      <p class="form-footer">✓ Respuesta en menos de 24 h &nbsp;·&nbsp; ✓ Sin compromiso</p>
+    </form>
+    <div id="form-success" class="form-success hidden">
+      <div class="success-icon">✓</div>
+      <h3>¡Solicitud recibida!</h3>
+      <p>Te contactaremos en menos de 24 horas.</p>
+    </div>
+  </div>
+</div>
+
+<script src="js/navbar.js"></script>
+<script src="js/scroll-animations.js"></script>
+<script src="js/mockups.js"></script>
+<script src="js/modal.js"></script>
+</body>
+</html>

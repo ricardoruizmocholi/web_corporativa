@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — FesolCheck</title>
+  <meta name="description" content="Artículos sobre control horario, legislación laboral española, RDL 8/2019 y gestión de equipos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    /* Blog card art patterns using SVG + CSS colors */
+    .bart-1 { background: linear-gradient(135deg, #1E3A5F 60%, #2DD4BF 100%); }
+    .bart-2 { background: linear-gradient(135deg, #0F1E30 60%, #1E3A5F 100%); }
+    .bart-3 { background: linear-gradient(135deg, #1FA896 40%, #1E3A5F 100%); }
+    .bart-4 { background: linear-gradient(135deg, #152B47 60%, #2DD4BF 100%); }
+    .bart-5 { background: linear-gradient(135deg, #2DD4BF 30%, #1E3A5F 100%); }
+    .bart-6 { background: linear-gradient(135deg, #1E3A5F 40%, #1FA896 100%); }
+    .blog-art-icon { color: rgba(255,255,255,.22); }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 2L3 6v4c0 3.866 3.13 7.52 7 8.5 3.87-.98 7-4.634 7-8.5V6L10 2z" fill="#2DD4BF"/>
+            <path d="M7 10l2 2 4-4" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="logo-name">Fesol<em>Check</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="funcionalidades.html">Funcionalidades</a></li>
+        <li><a href="precios.html">Precios</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+      </ul>
+      <button class="btn btn-accent nav-cta" onclick="tryOpenModal()">Solicitar Demo</button>
+      <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="funcionalidades.html">Funcionalidades</a>
+    <a href="precios.html">Precios</a>
+    <a href="blog.html">Blog</a>
+    <button class="btn btn-accent" onclick="tryOpenModal()">Solicitar Demo</button>
+  </div>
+</nav>
+
+<!-- HERO SM -->
+<section class="hero-sm">
+  <div class="container">
+    <span class="tag">Recursos y legislación</span>
+    <h1>Blog de FesolCheck</h1>
+    <p>Artículos prácticos sobre control horario, normativa laboral española y gestión de equipos para pymes.</p>
+  </div>
+</section>
+
+<!-- BLOG GRID -->
+<section class="section" style="background:var(--c-bg);">
+  <div class="container">
+    <div class="blog-grid">
+
+      <article class="blog-card fade-up">
+        <div class="blog-card-art bart-1">
+          <div class="blog-art">
+            <svg class="blog-art-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-cat">Legislación</span>
+          <h3>RDL 8/2019: todo lo que debes saber en 2025</h3>
+          <p class="blog-excerpt">El Real Decreto-Ley 8/2019 lleva seis años en vigor y muchas empresas siguen sin cumplirlo correctamente. Repasamos las obligaciones clave, los plazos y las sanciones actualizadas.</p>
+          <div class="blog-card-footer">
+            <span class="blog-date">12 marzo 2025</span>
+            <a href="#" class="blog-read">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="blog-card fade-up">
+        <div class="blog-card-art bart-2">
+          <div class="blog-art">
+            <svg class="blog-art-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-cat">Gestión</span>
+          <h3>Cómo gestionar jornadas partidas sin perder la cabeza</h3>
+          <p class="blog-excerpt">La jornada partida mañana-tarde sigue siendo la más común en España. Te contamos cómo organizarla digitalmente para evitar errores, olvidos y conflictos con tus empleados.</p>
+          <div class="blog-card-footer">
+            <span class="blog-date">28 febrero 2025</span>
+            <a href="#" class="blog-read">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="blog-card fade-up">
+        <div class="blog-card-art bart-3">
+          <div class="blog-art">
+            <svg class="blog-art-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-cat">Legal</span>
+          <h3>Horas extra: el límite de 80h y cómo controlarlo</h3>
+          <p class="blog-excerpt">El Estatuto de los Trabajadores fija un máximo de 80 horas extraordinarias anuales. Saltárselo tiene consecuencias. Te explicamos cómo llevar el control sin complicarte.</p>
+          <div class="blog-card-footer">
+            <span class="blog-date">14 febrero 2025</span>
+            <a href="#" class="blog-read">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="blog-card fade-up">
+        <div class="blog-card-art bart-4">
+          <div class="blog-art">
+            <svg class="blog-art-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-cat">Funcionalidades</span>
+          <h3>Fichaje por IP: qué es y cuándo usarlo</h3>
+          <p class="blog-excerpt">Restringir el fichaje a una dirección IP o subred garantiza que el registro se produce desde la ubicación autorizada. Cuándo tiene sentido, cómo configurarlo y qué alternativas existen.</p>
+          <div class="blog-card-footer">
+            <span class="blog-date">31 enero 2025</span>
+            <a href="#" class="blog-read">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="blog-card fade-up">
+        <div class="blog-card-art bart-5">
+          <div class="blog-art">
+            <svg class="blog-art-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-cat">Gestión</span>
+          <h3>Vacaciones en plantilla: evita el caos del verano</h3>
+          <p class="blog-excerpt">Gestionar las vacaciones de todo el equipo a la vez es uno de los retos más frecuentes en RRHH. Con un cuadrante visual y alertas de cobertura, el verano deja de ser un problema.</p>
+          <div class="blog-card-footer">
+            <span class="blog-date">15 enero 2025</span>
+            <a href="#" class="blog-read">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="blog-card fade-up">
+        <div class="blog-card-art bart-6">
+          <div class="blog-art">
+            <svg class="blog-art-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+        </div>
+        <div class="blog-card-body">
+          <span class="blog-cat">Producto</span>
+          <h3>FesolCheck 2025: novedades del primer trimestre</h3>
+          <p class="blog-excerpt">Chatbot IA integrado, nueva interfaz de cuadrante y mejoras en la gestión de tickets. Todo lo que hemos publicado en los primeros meses del año y lo que viene a continuación.</p>
+          <div class="blog-card-footer">
+            <span class="blog-date">3 enero 2025</span>
+            <a href="#" class="blog-read">Leer más →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo footer-logo">
+          <div class="logo-mark">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2L3 6v4c0 3.866 3.13 7.52 7 8.5 3.87-.98 7-4.634 7-8.5V6L10 2z" fill="#2DD4BF"/>
+              <path d="M7 10l2 2 4-4" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="logo-name">Fesol<em>Check</em></span>
+        </a>
+        <p class="footer-desc">Software de control horario y RRHH para pymes españolas.</p>
+        <div class="footer-live"><div class="live-dot"></div>En desarrollo activo — nuevas funcionalidades cada trimestre</div>
+      </div>
+      <div class="footer-col">
+        <h4>Producto</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="funcionalidades.html">Funcionalidades</a></li>
+          <li><a href="precios.html">Precios</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="aviso-legal.html">Aviso Legal</a></li>
+          <li><a href="privacidad.html">Política de Privacidad</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:hola@fesolcheck.es">hola@fesolcheck.es</a></li>
+          <li><a href="tel:+34910000000">+34 910 000 000</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 FesolCheck. Todos los derechos reservados.</p>
+      <div class="footer-legal">
+        <a href="aviso-legal.html">Aviso Legal</a>
+        <a href="privacidad.html">Política de Privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/navbar.js"></script>
+<script src="js/scroll-animations.js"></script>
+</body>
+</html>
