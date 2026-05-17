@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo funciona FesolCheck — Arquitectura & Tecnología</title>
+  <meta name="description" content="Arquitectura técnica de FesolCheck: PHP, MySQL, JavaScript Vanilla, REST API y patrón MVC adaptado. Flujo de datos, base de datos y módulos explicados.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/funcionamiento.css">
+</head>
+<body class="func-page">
+
+<!-- ━━━━━━ NAVBAR ━━━━━━ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 2L3 6v4c0 3.866 3.13 7.52 7 8.5 3.87-.98 7-4.634 7-8.5V6L10 2z" fill="#2DD4BF"/>
+            <path d="M7 10l2 2 4-4" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="logo-name">Fesol<em>Check</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="funcionalidades.html">Funcionalidades</a></li>
+        <li><a href="precios.html">Precios</a></li>
+        <li><a href="funcionamiento.html" class="active">Cómo funciona</a></li>
+      </ul>
+      <button class="btn btn-accent nav-cta" onclick="tryOpenModal()">Solicitar Demo</button>
+      <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="funcionalidades.html">Funcionalidades</a>
+    <a href="precios.html">Precios</a>
+    <a href="funcionamiento.html">Cómo funciona</a>
+    <button class="btn btn-accent" onclick="tryOpenModal()">Solicitar Demo</button>
+  </div>
+</nav>
+
+<!-- ━━━━━━ HERO TÉCNICO ━━━━━━ -->
+<section class="func-hero">
+  <div class="func-particles" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="func-container func-hero-inner">
+    <h1>Arquitectura &amp; funcionamiento</h1>
+    <p class="func-hero-sub">PHP · MySQL · JavaScript Vanilla · REST API · Patrón MVC adaptado</p>
+    <div class="tech-badges">
+      <!-- PHP -->
+      <span class="tech-badge">
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="none">
+          <ellipse cx="16" cy="16" rx="16" ry="10" fill="#7C83D1" opacity=".2"/>
+          <text x="16" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#7C83D1" font-family="monospace">PHP</text>
+        </svg>
+        PHP 8
+      </span>
+      <!-- MySQL -->
+      <span class="tech-badge">
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="none">
+          <ellipse cx="16" cy="10" rx="13" ry="5" fill="#E48E00" opacity=".3"/>
+          <rect x="3" y="10" width="26" height="12" fill="none" stroke="#E48E00" stroke-width="1.5"/>
+          <ellipse cx="16" cy="22" rx="13" ry="5" fill="#E48E00" opacity=".3"/>
+        </svg>
+        MySQL
+      </span>
+      <!-- JavaScript -->
+      <span class="tech-badge">
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="4" fill="#F7DF1E" opacity=".2"/>
+          <text x="16" y="22" text-anchor="middle" font-size="12" font-weight="800" fill="#F7DF1E" font-family="monospace">JS</text>
+        </svg>
+        JavaScript
+      </span>
+      <!-- CSS3 -->
+      <span class="tech-badge">
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="none">
+          <polygon points="4,2 28,2 25,28 16,31 7,28" fill="#264de4" opacity=".25"/>
+          <text x="16" y="20" text-anchor="middle" font-size="9" font-weight="800" fill="#60A5FA" font-family="monospace">CSS3</text>
+        </svg>
+        CSS3
+      </span>
+      <!-- HTML5 -->
+      <span class="tech-badge">
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="none">
+          <polygon points="4,2 28,2 25,28 16,31 7,28" fill="#e34c26" opacity=".25"/>
+          <text x="16" y="20" text-anchor="middle" font-size="8" font-weight="800" fill="#F87171" font-family="monospace">HTML5</text>
+        </svg>
+        HTML5
+      </span>
+      <!-- REST -->
+      <span class="tech-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2DD4BF" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+        REST API
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━ STICKY SUBMENU ━━━━━━ -->
+<nav class="func-submenu" id="func-submenu" aria-label="Secciones">
+  <div class="func-container">
+    <div class="func-submenu-inner">
+      <a href="#arquitectura" scroll-behavior="smooth"><span class="sub-num">01</span> Arquitectura</a>
+      <a href="#flujo"><span class="sub-num">02</span> Flujo de datos</a>
+      <a href="#base-datos"><span class="sub-num">03</span> Base de datos</a>
+      <a href="#modulos"><span class="sub-num">04</span> Módulos</a>
+      <a href="#testing"><span class="sub-num">05</span> Testing</a>
+      <a href="#documentacion"><span class="sub-num">06</span> Documentación</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  01 — ARQUITECTURA DEL PROYECTO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section class="func-section" id="arquitectura">
+  <div class="func-num" aria-hidden="true">01</div>
+  <div class="func-container">
+    <div class="func-section-head fade-up-init">
+      <span class="func-tag">Arquitectura</span>
+      <h2>Estructura del proyecto</h2>
+      <p class="func-section-sub">MVC adaptado · PHP nativo · sin framework · front-controller único</p>
+    </div>
+
+    <div class="arch-grid">
+      <!-- Árbol de carpetas -->
+      <div class="tree-card fade-up-init">
+        <h3>Árbol de carpetas</h3>
+        <ul class="tree-root">
+          <li class="tree-item tree-folder">📁 fesolcheck/</li>
+          <li class="tree-item">
+            <span class="tree-conn">├── </span>
+            <span class="tree-entry tree-php" data-tooltip="Router principal · carga de secciones · chatbot IA">📄 panel.php</span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">├── </span>
+            <span class="tree-entry tree-php" data-tooltip="Autenticación · gestión de sesión PHP nativa">📄 login.php</span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">├── </span>
+            <span class="tree-entry tree-php" data-tooltip="Conexión PDO a MySQL · charset utf8mb4">📄 config.php</span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">├── </span>
+            <span class="tree-entry tree-php" data-tooltip="Redirección al login si no hay sesión activa">📄 index.php</span>
+          </li>
+          <li class="tree-item"><span class="tree-conn">│</span></li>
+          <li class="tree-item tree-folder">
+            <span class="tree-conn">├── </span>
+            <span class="tree-entry tree-folder" data-tooltip="Módulos de vista (PHP)">📁 secciones/</span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp; ├── </span>
+            <span class="tree-entry tree-php" data-tooltip="Módulo de fichaje de empleados">📄 fichaje/fichajes.php</span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp; ├── </span>
+            <span class="tree-entry tree-php" data-tooltip="Cuadrantes y solicitudes de horario">📄 horario/horarios.php</span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp; ├── </span>
+            <span class="tree-entry tree-php" data-tooltip="Generación de reportes PDF (RDL 8/2019) y Excel">📄 reportes/reportes.php</span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp; ├── </span>
+            <span class="tree-entry tree-php" data-tooltip="CRUD completo de empleados">📄 empleados/empleados.php</span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp; ├── </span>
+            <span class="tree-entry tree-php" data-tooltip="Gestión y subida de nóminas PDF">📄 nominas/nominas_admin.php</span>
+          </li>
+          <li class="tree-item"><span class="tree-conn">│&nbsp;&nbsp; │</span></li>
+          <li class="tree-item tree-folder">
+            <span class="tree-conn">│&nbsp;&nbsp; ├── </span>
+            <span class="tree-entry tree-api" data-tooltip="15 endpoints REST · todos devuelven JSON">📁 api/</span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp; │&nbsp;&nbsp; ├── </span>
+            <span class="tree-entry tree-api" data-tooltip="GET · Horarios del empleado autenticado">📄 obtener_horarios.php</span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp; │&nbsp;&nbsp; ├── </span>
+            <span class="tree-entry tree-api" data-tooltip="GET · Vista admin de todos los horarios">📄 obtener_horarios_admin.php</span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp; │&nbsp;&nbsp; ├── </span>
+            <span class="tree-entry tree-api" data-tooltip="POST · Toggle tipo de jornada laboral">📄 tipo_jornada_toggle.php</span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp; │&nbsp;&nbsp; └── </span>
+            <span class="tree-entry tree-api" data-tooltip="+12 endpoints adicionales (fichaje, vacaciones, tickets…)">📄 [+12 endpoints]</span>
+          </li>
+          <li class="tree-item"><span class="tree-conn">│&nbsp;&nbsp; │</span></li>
+          <li class="tree-item tree-folder">
+            <span class="tree-conn">│&nbsp;&nbsp; └── </span>
+            <span class="tree-entry tree-folder" data-tooltip="Motor del chatbot IA · Claude Sonnet via Anthropic API">📁 ia/</span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └── </span>
+            <span class="tree-entry tree-php" data-tooltip="POST · Procesa mensajes y llama a la API de Anthropic">📄 ia_handler.php</span>
+          </li>
+          <li class="tree-item"><span class="tree-conn">│</span></li>
+          <li class="tree-item tree-folder">
+            <span class="tree-conn">├── </span>
+            <span class="tree-entry tree-folder" data-tooltip="Hojas de estilo organizadas por módulo">📁 css/</span>
+          </li>
+          <li class="tree-item tree-sql">
+            <span class="tree-conn">├── </span>
+            <span class="tree-entry tree-sql" data-tooltip="Schema SQL completo · 16 tablas InnoDB UTF8MB4">📁 BD/</span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">├── </span>
+            <span class="tree-entry" data-tooltip="Nóminas PDF subidas y fotos de perfil">📁 uploads/</span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">└── </span>
+            <span class="tree-entry" data-tooltip="PDFs generados automáticamente (RDL 8/2019)">📁 reportes_pdf/</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Pills resumen -->
+      <div class="arch-pills">
+        <div class="arch-pill">
+          <div class="arch-pill-label">Patrón</div>
+          <p>MVC adaptado sin framework. <code>panel.php</code> actúa como front-controller: valida la sesión, determina el módulo activo y carga el fragmento PHP correspondiente.</p>
+        </div>
+        <div class="arch-pill">
+          <div class="arch-pill-label">Sesiones</div>
+          <p>Sesiones PHP nativas. Control de rol <code>admin</code> / <code>empleado</code> verificado en cada endpoint antes de ejecutar ninguna query. Sin JWT ni tokens.</p>
+        </div>
+        <div class="arch-pill">
+          <div class="arch-pill-label">API REST</div>
+          <p>15 endpoints internos. Todos devuelven JSON con estructura uniforme:<br>
+          <code>&#123;success: bool, message: string, data: []&#125;</code><br>
+          El frontend consume la API exclusivamente con <code>fetch()</code> nativo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  02 — FLUJO DE DATOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section class="func-section func-section--alt" id="flujo">
+  <div class="func-num" aria-hidden="true">02</div>
+  <div class="func-container">
+    <div class="func-section-head fade-up-init">
+      <span class="func-tag">Flujo de datos</span>
+      <h2>Ciclo completo de una acción</h2>
+      <p class="func-section-sub">Ejemplo: empleado clica "Fichar Entrada" → INSERT en MySQL → DOM actualizado</p>
+    </div>
+
+    <!-- Diagrama SVG de secuencia -->
+    <div class="seq-wrapper fade-up-init">
+      <svg viewBox="0 0 820 480" width="820" height="480" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama de secuencia de fichaje">
+        <defs>
+          <marker id="arr-req" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#2DD4BF"/>
+          </marker>
+          <marker id="arr-res" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#60A5FA"/>
+          </marker>
+          <marker id="arr-self" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#2DD4BF"/>
+          </marker>
+        </defs>
+
+        <!-- Fondos de participantes -->
+        <rect x="10"  y="10" width="120" height="38" rx="6" fill="#1E3244" stroke="#2A4060" stroke-width="1"/>
+        <rect x="160" y="10" width="110" height="38" rx="6" fill="#1E3244" stroke="#2A4060" stroke-width="1"/>
+        <rect x="295" y="10" width="180" height="38" rx="6" fill="#1E3244" stroke="#2A4060" stroke-width="1"/>
+        <rect x="500" y="10" width="110" height="38" rx="6" fill="#1E3244" stroke="#2A4060" stroke-width="1"/>
+        <rect x="640" y="10" width="90"  height="38" rx="6" fill="#1E3244" stroke="#2A4060" stroke-width="1"/>
+
+        <!-- Etiquetas de participantes -->
+        <text x="70"  y="34" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#E2E8F0">Navegador / UI</text>
+        <text x="215" y="34" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#F7DF1E">JavaScript</text>
+        <text x="385" y="29" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#7C83D1">secciones/api/</text>
+        <text x="385" y="43" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#7C83D1">fichaje.php</text>
+        <text x="555" y="34" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#7C83D1">config.php</text>
+        <text x="685" y="34" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#E48E00">MySQL</text>
+
+        <!-- Líneas de vida (punteadas) -->
+        <line x1="70"  y1="48" x2="70"  y2="470" stroke="#2A4060" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="215" y1="48" x2="215" y2="470" stroke="#2A4060" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="385" y1="48" x2="385" y2="470" stroke="#2A4060" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="555" y1="48" x2="555" y2="470" stroke="#2A4060" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="685" y1="48" x2="685" y2="470" stroke="#2A4060" stroke-width="1" stroke-dasharray="4,4"/>
+
+        <!-- ① UI → JS: clic en botón -->
+        <line x1="75"  y1="90" x2="208" y2="90" stroke="#2DD4BF" stroke-width="1.5" marker-end="url(#arr-req)"/>
+        <rect x="60" y="78" width="20" height="20" rx="3" fill="#2DD4BF" opacity=".15"/>
+        <text x="70" y="92" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#2DD4BF">①</text>
+        <text x="140" y="84" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#94A3B8">onclick="registrarFichaje('entrada')"</text>
+
+        <!-- ② JS → API: fetch POST -->
+        <line x1="220" y1="130" x2="378" y2="130" stroke="#2DD4BF" stroke-width="1.5" marker-end="url(#arr-req)"/>
+        <text x="215" y="122" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#2DD4BF">②</text>
+        <text x="299" y="124" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#94A3B8">fetch POST {method:'POST', body:JSON}</text>
+
+        <!-- ③ API auto-validación: session_start() -->
+        <path d="M390,165 Q430,165 430,180 Q430,195 390,195" fill="none" stroke="#2DD4BF" stroke-width="1.5" marker-end="url(#arr-self)"/>
+        <text x="385" y="157" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#2DD4BF">③</text>
+        <text x="455" y="178" text-anchor="start" font-family="JetBrains Mono,monospace" font-size="9" fill="#94A3B8">session_start() · isset($_SESSION)</text>
+
+        <!-- ④ API → config.php -->
+        <line x1="390" y1="225" x2="548" y2="225" stroke="#2DD4BF" stroke-width="1.5" marker-end="url(#arr-req)"/>
+        <text x="385" y="217" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#2DD4BF">④</text>
+        <text x="469" y="219" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#94A3B8">require_once '../../config.php'</text>
+
+        <!-- ⑤ config.php → MySQL: PDO -->
+        <line x1="560" y1="260" x2="678" y2="260" stroke="#2DD4BF" stroke-width="1.5" marker-end="url(#arr-req)"/>
+        <text x="555" y="252" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#2DD4BF">⑤</text>
+        <text x="617" y="254" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#94A3B8">new PDO('mysql:host=…') charset=utf8mb4</text>
+
+        <!-- ⑥ API → MySQL: INSERT -->
+        <line x1="390" y1="295" x2="678" y2="295" stroke="#2DD4BF" stroke-width="1.5" marker-end="url(#arr-req)"/>
+        <text x="385" y="287" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#2DD4BF">⑥</text>
+        <text x="534" y="289" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#94A3B8">INSERT INTO FICHAJE VALUES (:u,:t,CURDATE(),CURTIME())</text>
+
+        <!-- ⑦ MySQL → API: resultado -->
+        <line x1="678" y1="330" x2="392" y2="330" stroke="#60A5FA" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arr-res)"/>
+        <text x="685" y="322" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#60A5FA">⑦</text>
+        <text x="534" y="324" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#94A3B8">PDOStatement::fetch() · PDO::FETCH_ASSOC</text>
+
+        <!-- ⑧ API → JS: json_encode -->
+        <line x1="380" y1="365" x2="222" y2="365" stroke="#60A5FA" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arr-res)"/>
+        <text x="385" y="357" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#60A5FA">⑧</text>
+        <text x="302" y="359" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#94A3B8">echo json_encode(['success'=&gt;true,'hora'=&gt;'09:00'])</text>
+
+        <!-- ⑨ JS → UI: actualizar DOM -->
+        <line x1="210" y1="400" x2="78"  y2="400" stroke="#60A5FA" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arr-res)"/>
+        <text x="215" y="392" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#60A5FA">⑨</text>
+        <text x="144" y="394" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#94A3B8">document.querySelector('.fichaje-hora').textContent = hora</text>
+
+        <!-- Leyenda -->
+        <line x1="20" y1="450" x2="50" y2="450" stroke="#2DD4BF" stroke-width="1.5"/>
+        <text x="56" y="454" font-family="JetBrains Mono,monospace" font-size="9" fill="#94A3B8">Petición</text>
+        <line x1="120" y1="450" x2="150" y2="450" stroke="#60A5FA" stroke-width="1.5" stroke-dasharray="6,3"/>
+        <text x="156" y="454" font-family="JetBrains Mono,monospace" font-size="9" fill="#94A3B8">Respuesta</text>
+      </svg>
+    </div>
+
+    <!-- Bloques de código -->
+    <div class="code-grid">
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-lang-dot php"></span>
+          secciones/api/fichaje.php (fragmento)
+        </div>
+        <pre><code><span class="cm">// secciones/api/fichaje.php</span>
+<span class="fn">session_start</span>();
+<span class="fn">header</span>(<span class="str">'Content-Type: application/json'</span>);
+<span class="kw">require_once</span> <span class="str">'../../config.php'</span>; <span class="cm">// $pdo disponible</span>
+
+<span class="kw">if</span> (!<span class="fn">isset</span>(<span class="var">$_SESSION</span>[<span class="str">'usuario'</span>])) {
+    <span class="kw">echo</span> <span class="fn">json_encode</span>([
+        <span class="str">'success'</span> =&gt; <span class="num">false</span>,
+        <span class="str">'message'</span> =&gt; <span class="str">'No autorizado'</span>
+    ]);
+    <span class="kw">exit</span>;
+}
+
+<span class="var">$tipo</span>      = <span class="var">$_POST</span>[<span class="str">'tipo'</span>] ?? <span class="str">''</span>; <span class="cm">// 'entrada'|'pausa'|'salida'</span>
+<span class="var">$idUsuario</span> = <span class="var">$_SESSION</span>[<span class="str">'usuario'</span>][<span class="str">'id'</span>];
+
+<span class="var">$stmt</span> = <span class="var">$pdo</span>-&gt;<span class="fn">prepare</span>(
+    <span class="str">"INSERT INTO FICHAJE (id_usuario, tipo, fecha, hora)
+     VALUES (:u, :t, CURDATE(), CURTIME())"</span>
+);
+<span class="var">$stmt</span>-&gt;<span class="fn">execute</span>([<span class="str">'u'</span> =&gt; <span class="var">$idUsuario</span>, <span class="str">'t'</span> =&gt; <span class="var">$tipo</span>]);
+
+<span class="kw">echo</span> <span class="fn">json_encode</span>([
+    <span class="str">'success'</span> =&gt; <span class="num">true</span>,
+    <span class="str">'hora'</span>    =&gt; <span class="fn">date</span>(<span class="str">'H:i'</span>)
+]);</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-lang-dot js"></span>
+          Llamada fetch desde el navegador
+        </div>
+        <pre><code><span class="cm">// Llamada fetch desde el navegador</span>
+<span class="kw">async function</span> <span class="fn">registrarFichaje</span>(tipo) {
+  <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">fetch</span>(
+    <span class="str">'secciones/api/fichaje.php'</span>, {
+      method: <span class="str">'POST'</span>,
+      body: <span class="kw">new</span> <span class="fn">URLSearchParams</span>({ tipo })
+    }
+  );
+  <span class="kw">const</span> data = <span class="kw">await</span> res.<span class="fn">json</span>();
+
+  <span class="kw">if</span> (data.success) {
+    document
+      .<span class="fn">querySelector</span>(<span class="str">'.fichaje-hora'</span>)
+      .textContent = data.hora;
+
+    document
+      .<span class="fn">querySelector</span>(<span class="str">'.fichaje-estado'</span>)
+      .classList.<span class="fn">add</span>(<span class="str">'activo'</span>);
+  }
+}</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  03 — BASE DE DATOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section class="func-section" id="base-datos">
+  <div class="func-num" aria-hidden="true">03</div>
+  <div class="func-container">
+    <div class="func-section-head fade-up-init">
+      <span class="func-tag">Base de datos</span>
+      <h2>16 tablas · InnoDB · UTF8MB4 · Claves foráneas en cascada</h2>
+      <p class="func-section-sub">Diagrama ER simplificado — relaciones principales por dominio</p>
+    </div>
+
+    <!-- Diagrama ER SVG -->
+    <div class="er-wrapper fade-up-init">
+      <svg viewBox="0 0 920 560" width="920" height="560" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama ER de FesolCheck">
+        <defs>
+          <marker id="fk-arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#60A5FA"/>
+          </marker>
+          <marker id="nm-arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L8,3 L0,6 Z" fill="#94A3B8"/>
+          </marker>
+        </defs>
+
+        <!-- ─── DOMINIO USUARIOS (azul) ─── -->
+        <text x="30" y="28" font-family="JetBrains Mono,monospace" font-size="10" fill="#60A5FA" font-weight="700" letter-spacing="1">USUARIOS</text>
+
+        <!-- USUARIO -->
+        <rect x="20" y="36" width="180" height="98" rx="8" fill="#1E3244" stroke="#60A5FA" stroke-width="1.5"/>
+        <rect x="20" y="36" width="180" height="26" rx="8" fill="#60A5FA"/>
+        <rect x="20" y="52" width="180" height="10" fill="#60A5FA"/>
+        <text x="110" y="54" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0F1E30" font-weight="700">USUARIO</text>
+        <text x="30" y="78"  font-family="JetBrains Mono,monospace" font-size="9.5" fill="#F59E0B">🔑 id_usuario  INT  PK</text>
+        <text x="30" y="93"  font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   nombre  VARCHAR(100)</text>
+        <text x="30" y="108" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   email  VARCHAR(150)</text>
+        <text x="30" y="123" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#4ADE80">   tipo_contrato  ENUM</text>
+
+        <!-- EMPRESA -->
+        <rect x="240" y="36" width="175" height="98" rx="8" fill="#1E3244" stroke="#60A5FA" stroke-width="1.5"/>
+        <rect x="240" y="36" width="175" height="26" rx="8" fill="#60A5FA"/>
+        <rect x="240" y="52" width="175" height="10" fill="#60A5FA"/>
+        <text x="328" y="54" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0F1E30" font-weight="700">EMPRESA</text>
+        <text x="250" y="78"  font-family="JetBrains Mono,monospace" font-size="9.5" fill="#F59E0B">🔑 id_empresa  INT  PK</text>
+        <text x="250" y="93"  font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   nombre  VARCHAR(150)</text>
+        <text x="250" y="108" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   CIF  VARCHAR(20)</text>
+        <text x="250" y="123" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   restringir_ip  TINYINT</text>
+
+        <!-- EMPRESA_USUARIO (pivote N:M) -->
+        <rect x="460" y="48" width="155" height="72" rx="8" fill="#1E3244" stroke="#94A3B8" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="538" y="68" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#94A3B8" font-weight="700">EMPRESA_USUARIO</text>
+        <text x="470" y="86"  font-family="JetBrains Mono,monospace" font-size="9" fill="#60A5FA">🔗 id_empresa  FK</text>
+        <text x="470" y="100" font-family="JetBrains Mono,monospace" font-size="9" fill="#60A5FA">🔗 id_usuario  FK</text>
+        <text x="470" y="113" font-family="JetBrains Mono,monospace" font-size="9" fill="#94A3B8">N:M pivote</text>
+
+        <!-- Relaciones USUARIOS -->
+        <line x1="200" y1="85" x2="240" y2="85" stroke="#60A5FA" stroke-width="1" marker-end="url(#nm-arr)"/>
+        <text x="205" y="80" font-family="JetBrains Mono,monospace" font-size="8" fill="#60A5FA">N</text>
+        <line x1="415" y1="85" x2="460" y2="85" stroke="#94A3B8" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#nm-arr)"/>
+        <text x="418" y="80" font-family="JetBrains Mono,monospace" font-size="8" fill="#94A3B8">N</text>
+
+        <!-- ─── DOMINIO TIEMPO (verde) ─── -->
+        <text x="30" y="168" font-family="JetBrains Mono,monospace" font-size="10" fill="#2DD4BF" font-weight="700" letter-spacing="1">TIEMPO</text>
+
+        <!-- FICHAJE -->
+        <rect x="20" y="178" width="175" height="112" rx="8" fill="#1E3244" stroke="#2DD4BF" stroke-width="1.5"/>
+        <rect x="20" y="178" width="175" height="26" rx="8" fill="#2DD4BF"/>
+        <rect x="20" y="194" width="175" height="10" fill="#2DD4BF"/>
+        <text x="108" y="196" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0F1E30" font-weight="700">FICHAJE</text>
+        <text x="30" y="220" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#F59E0B">🔑 id_fichaje  INT  PK</text>
+        <text x="30" y="235" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#60A5FA">🔗 id_usuario  FK</text>
+        <text x="30" y="250" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#4ADE80">   tipo  ENUM</text>
+        <text x="30" y="265" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   fecha  DATE · hora TIME</text>
+        <text x="30" y="280" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   ip_address  VARCHAR</text>
+
+        <!-- HORARIOS -->
+        <rect x="230" y="178" width="185" height="130" rx="8" fill="#1E3244" stroke="#2DD4BF" stroke-width="1.5"/>
+        <rect x="230" y="178" width="185" height="26" rx="8" fill="#2DD4BF"/>
+        <rect x="230" y="194" width="185" height="10" fill="#2DD4BF"/>
+        <text x="322" y="196" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0F1E30" font-weight="700">HORARIOS</text>
+        <text x="240" y="220" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#F59E0B">🔑 id_horario  INT  PK</text>
+        <text x="240" y="235" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#60A5FA">🔗 id_usuario  FK</text>
+        <text x="240" y="250" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   fecha  DATE</text>
+        <text x="240" y="265" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#4ADE80">   tipo_jornada  ENUM</text>
+        <text x="240" y="280" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   hora_inicio · hora_fin</text>
+        <text x="240" y="295" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   horas_totales  DECIMAL</text>
+
+        <!-- HORAS_EXTRA -->
+        <rect x="455" y="178" width="165" height="82" rx="8" fill="#1E3244" stroke="#2DD4BF" stroke-width="1.5"/>
+        <rect x="455" y="178" width="165" height="26" rx="8" fill="#2DD4BF"/>
+        <rect x="455" y="194" width="165" height="10" fill="#2DD4BF"/>
+        <text x="538" y="196" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0F1E30" font-weight="700">HORAS_EXTRA</text>
+        <text x="465" y="220" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#60A5FA">🔗 id_usuario  FK</text>
+        <text x="465" y="235" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   anio  YEAR</text>
+        <text x="465" y="250" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   horas_acumuladas  DECIMAL</text>
+
+        <!-- Relaciones TIEMPO -->
+        <line x1="110" y1="136" x2="110" y2="178" stroke="#2DD4BF" stroke-width="1" marker-end="url(#fk-arr)"/>
+        <text x="115" y="160" font-family="JetBrains Mono,monospace" font-size="8" fill="#2DD4BF">N</text>
+        <line x1="322" y1="136" x2="322" y2="178" stroke="#2DD4BF" stroke-width="1" marker-end="url(#fk-arr)"/>
+        <text x="327" y="160" font-family="JetBrains Mono,monospace" font-size="8" fill="#2DD4BF">N</text>
+        <line x1="538" y1="134" x2="538" y2="178" stroke="#2DD4BF" stroke-width="1" marker-end="url(#fk-arr)"/>
+        <text x="543" y="158" font-family="JetBrains Mono,monospace" font-size="8" fill="#2DD4BF">1</text>
+
+        <!-- ─── DOMINIO SOLICITUDES (naranja) ─── -->
+        <text x="660" y="28" font-family="JetBrains Mono,monospace" font-size="10" fill="#F59E0B" font-weight="700" letter-spacing="1">SOLICITUDES</text>
+
+        <!-- SOLICITUDES_HORARIO -->
+        <rect x="650" y="36" width="240" height="130" rx="8" fill="#1E3244" stroke="#F59E0B" stroke-width="1.5"/>
+        <rect x="650" y="36" width="240" height="26" rx="8" fill="#F59E0B"/>
+        <rect x="650" y="52" width="240" height="10" fill="#F59E0B"/>
+        <text x="770" y="54" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#0F1E30" font-weight="700">SOLICITUDES_HORARIO</text>
+        <text x="660" y="78"  font-family="JetBrains Mono,monospace" font-size="9.5" fill="#F59E0B">🔑 id_solicitud  INT  PK</text>
+        <text x="660" y="93"  font-family="JetBrains Mono,monospace" font-size="9.5" fill="#60A5FA">🔗 id_usuario  FK</text>
+        <text x="660" y="108" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#4ADE80">   estado  ENUM(PENDIENTE|APROBADO|RECHAZADO)</text>
+        <text x="660" y="123" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#4ADE80">   tipo_solicitud  ENUM</text>
+        <text x="660" y="138" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   fecha_creacion  DATETIME</text>
+        <text x="660" y="153" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94A3B8">   → DETALLE + HISTORIAL_VALIDACIONES</text>
+
+        <!-- ─── DOMINIO VACACIONES (violeta) ─── -->
+        <text x="650" y="195" font-family="JetBrains Mono,monospace" font-size="10" fill="#A78BFA" font-weight="700" letter-spacing="1">VACACIONES</text>
+
+        <!-- VACACIONES -->
+        <rect x="650" y="205" width="230" height="100" rx="8" fill="#1E3244" stroke="#A78BFA" stroke-width="1.5"/>
+        <rect x="650" y="205" width="230" height="26" rx="8" fill="#A78BFA"/>
+        <rect x="650" y="221" width="230" height="10" fill="#A78BFA"/>
+        <text x="765" y="222" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0F1E30" font-weight="700">VACACIONES</text>
+        <text x="660" y="248" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#F59E0B">🔑 id_vacacion  INT  PK</text>
+        <text x="660" y="263" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#60A5FA">🔗 id_usuario  FK</text>
+        <text x="660" y="278" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   fecha_inicio · fecha_fin  DATE</text>
+        <text x="660" y="293" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#4ADE80">   estado  ENUM</text>
+
+        <!-- ─── DOMINIO DOCS & COMMS (gris azulado) ─── -->
+        <text x="30" y="325" font-family="JetBrains Mono,monospace" font-size="10" fill="#94A3B8" font-weight="700" letter-spacing="1">DOCS &amp; COMUNICACIÓN</text>
+
+        <!-- INCIDENCIAS -->
+        <rect x="20" y="338" width="195" height="112" rx="8" fill="#1E3244" stroke="#94A3B8" stroke-width="1.5"/>
+        <rect x="20" y="338" width="195" height="26" rx="8" fill="#94A3B8"/>
+        <rect x="20" y="354" width="195" height="10" fill="#94A3B8"/>
+        <text x="118" y="356" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0F1E30" font-weight="700">INCIDENCIAS</text>
+        <text x="30" y="378" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#F59E0B">🔑 id_incidencia  INT  PK</text>
+        <text x="30" y="393" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#60A5FA">🔗 id_usuario  FK</text>
+        <text x="30" y="408" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#4ADE80">   categoria  ENUM</text>
+        <text x="30" y="423" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#4ADE80">   estado  ENUM</text>
+        <text x="30" y="438" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94A3B8">   → MENSAJES_TICKET</text>
+
+        <!-- REPORTES -->
+        <rect x="245" y="338" width="190" height="96" rx="8" fill="#1E3244" stroke="#94A3B8" stroke-width="1.5"/>
+        <rect x="245" y="338" width="190" height="26" rx="8" fill="#94A3B8"/>
+        <rect x="245" y="354" width="190" height="10" fill="#94A3B8"/>
+        <text x="340" y="356" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0F1E30" font-weight="700">REPORTES</text>
+        <text x="255" y="378" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#F59E0B">🔑 id_reporte  INT  PK</text>
+        <text x="255" y="393" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#60A5FA">🔗 id_usuario  FK</text>
+        <text x="255" y="408" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   tipo  VARCHAR</text>
+        <text x="255" y="423" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   ruta_archivo  VARCHAR</text>
+
+        <!-- NOTIFICACIONES -->
+        <rect x="465" y="338" width="165" height="96" rx="8" fill="#1E3244" stroke="#94A3B8" stroke-width="1.5"/>
+        <rect x="465" y="338" width="165" height="26" rx="8" fill="#94A3B8"/>
+        <rect x="465" y="354" width="165" height="10" fill="#94A3B8"/>
+        <text x="548" y="356" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0F1E30" font-weight="700">NOTIFICACIONES</text>
+        <text x="475" y="378" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#60A5FA">🔗 id_usuario  FK</text>
+        <text x="475" y="393" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   mensaje  TEXT</text>
+        <text x="475" y="408" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   leida  TINYINT</text>
+        <text x="475" y="423" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   created_at  DATETIME</text>
+
+        <!-- ─── ADICIONALES ─── -->
+        <rect x="660" y="338" width="230" height="82" rx="8" fill="#1E3244" stroke="#2A4060" stroke-width="1"/>
+        <text x="775" y="360" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#94A3B8" font-weight="700">TIPOS_JORNADA_CUSTOM</text>
+        <text x="670" y="378" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#60A5FA">🔗 id_empresa  FK</text>
+        <text x="670" y="393" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#E2E8F0">   nombre · color  VARCHAR</text>
+        <text x="670" y="410" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94A3B8">+ EMPRESA_IPS_AUTORIZADAS</text>
+
+        <!-- Relaciones DOCS → USUARIO -->
+        <line x1="110" y1="306" x2="110" y2="338" stroke="#94A3B8" stroke-width="1" marker-end="url(#fk-arr)"/>
+        <line x1="340" y1="306" x2="340" y2="338" stroke="#94A3B8" stroke-width="1" marker-end="url(#fk-arr)"/>
+        <line x1="538" y1="260" x2="538" y2="338" stroke="#94A3B8" stroke-width="1" marker-end="url(#fk-arr)"/>
+
+        <!-- Relación SOLICITUDES → USUARIO -->
+        <line x1="650" y1="85" x2="630" y2="85" stroke="#F59E0B" stroke-width="1"/>
+        <line x1="630" y1="85" x2="630" y2="110" stroke="#F59E0B" stroke-width="1"/>
+        <line x1="200" y1="110" x2="630" y2="110" stroke="#F59E0B" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="415" y="106" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" fill="#F59E0B">FK id_usuario</text>
+
+        <!-- Leyenda -->
+        <rect x="20" y="470" width="880" height="1" fill="#2A4060"/>
+        <line x1="30" y1="490" x2="60" y2="490" stroke="#60A5FA" stroke-width="1.5" marker-end="url(#fk-arr)"/>
+        <text x="65" y="494" font-family="JetBrains Mono,monospace" font-size="9" fill="#94A3B8">FK directa</text>
+        <line x1="140" y1="490" x2="170" y2="490" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#nm-arr)"/>
+        <text x="175" y="494" font-family="JetBrains Mono,monospace" font-size="9" fill="#94A3B8">N:M</text>
+        <text x="240" y="494" font-family="JetBrains Mono,monospace" font-size="9" fill="#F59E0B">🔑 PK</text>
+        <text x="285" y="494" font-family="JetBrains Mono,monospace" font-size="9" fill="#60A5FA">🔗 FK</text>
+        <text x="330" y="494" font-family="JetBrains Mono,monospace" font-size="9" fill="#4ADE80">■ ENUM</text>
+        <text x="620" y="494" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="9" fill="#94A3B8">Motor: InnoDB · charset: utf8mb4 · 16 tablas totales</text>
+      </svg>
+    </div>
+
+    <!-- Tarjetas de tabla en detalle -->
+    <div class="db-tables-grid">
+      <!-- FICHAJE -->
+      <div class="db-table-card">
+        <div class="db-table-header fichaje">FICHAJE</div>
+        <div class="db-col-list">
+          <div class="db-col-row">
+            <span class="db-col-icon pk">PK</span>
+            <div><span class="db-col-name">id_fichaje</span><span class="db-col-type">INT UNSIGNED · AUTO_INCREMENT · NOT NULL</span><span class="db-col-desc">Clave primaria</span></div>
+          </div>
+          <div class="db-col-row">
+            <span class="db-col-icon fk">FK</span>
+            <div><span class="db-col-name">id_usuario</span><span class="db-col-type">INT UNSIGNED · NOT NULL</span><span class="db-col-desc">Empleado que ficha</span></div>
+          </div>
+          <div class="db-col-row">
+            <span class="db-col-icon en">EN</span>
+            <div><span class="db-col-name">tipo</span><span class="db-col-type">ENUM('entrada','pausa','reanudacion','salida')</span><span class="db-col-desc">Tipo de evento</span></div>
+          </div>
+          <div class="db-col-row">
+            <span class="db-col-icon va">VA</span>
+            <div><span class="db-col-name">fecha</span><span class="db-col-type">DATE · NOT NULL</span><span class="db-col-desc">Día del fichaje</span></div>
+          </div>
+          <div class="db-col-row">
+            <span class="db-col-icon va">VA</span>
+            <div><span class="db-col-name">hora</span><span class="db-col-type">TIME · NOT NULL</span><span class="db-col-desc">Hora exacta del evento</span></div>
+          </div>
+          <div class="db-col-row">
+            <span class="db-col-icon va">VA</span>
+            <div><span class="db-col-name">ip_address</span><span class="db-col-type">VARCHAR(45) · nullable</span><span class="db-col-desc">IP del cliente (validación)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HORARIOS -->
+      <div class="db-table-card">
+        <div class="db-table-header horarios">HORARIOS</div>
+        <div class="db-col-list">
+          <div class="db-col-row">
+            <span class="db-col-icon pk">PK</span>
+            <div><span class="db-col-name">id_horario</span><span class="db-col-type">INT UNSIGNED · AUTO_INCREMENT · NOT NULL</span><span class="db-col-desc">Clave primaria</span></div>
+          </div>
+          <div class="db-col-row">
+            <span class="db-col-icon fk">FK</span>
+            <div><span class="db-col-name">id_usuario</span><span class="db-col-type">INT UNSIGNED · NOT NULL</span><span class="db-col-desc">Empleado asignado</span></div>
+          </div>
+          <div class="db-col-row">
+            <span class="db-col-icon va">VA</span>
+            <div><span class="db-col-name">fecha</span><span class="db-col-type">DATE · NOT NULL</span><span class="db-col-desc">Día del horario</span></div>
+          </div>
+          <div class="db-col-row">
+            <span class="db-col-icon en">EN</span>
+            <div><span class="db-col-name">tipo_jornada</span><span class="db-col-type">ENUM · NOT NULL</span><span class="db-col-desc">Tipo de jornada o ausencia</span></div>
+          </div>
+          <div class="db-col-row">
+            <span class="db-col-icon va">VA</span>
+            <div><span class="db-col-name">hora_inicio</span><span class="db-col-type">TIME · nullable</span><span class="db-col-desc">Inicio de turno</span></div>
+          </div>
+          <div class="db-col-row">
+            <span class="db-col-icon va">VA</span>
+            <div><span class="db-col-name">hora_fin</span><span class="db-col-type">TIME · nullable</span><span class="db-col-desc">Fin de turno</span></div>
+          </div>
+          <div class="db-col-row">
+            <span class="db-col-icon va">VA</span>
+            <div><span class="db-col-name">horas_totales</span><span class="db-col-type">DECIMAL(5,2) · nullable</span><span class="db-col-desc">Horas computadas</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOLICITUDES_HORARIO -->
+      <div class="db-table-card">
+        <div class="db-table-header solicitudes">SOLICITUDES_HORARIO</div>
+        <div class="db-col-list">
+          <div class="db-col-row">
+            <span class="db-col-icon pk">PK</span>
+            <div><span class="db-col-name">id_solicitud</span><span class="db-col-type">INT UNSIGNED · AUTO_INCREMENT · NOT NULL</span><span class="db-col-desc">Clave primaria</span></div>
+          </div>
+          <div class="db-col-row">
+            <span class="db-col-icon fk">FK</span>
+            <div><span class="db-col-name">id_usuario</span><span class="db-col-type">INT UNSIGNED · NOT NULL</span><span class="db-col-desc">Empleado solicitante</span></div>
+          </div>
+          <div class="db-col-row">
+            <span class="db-col-icon en">EN</span>
+            <div><span class="db-col-name">estado</span><span class="db-col-type">ENUM('PENDIENTE','APROBADO','RECHAZADO')</span><span class="db-col-desc">Estado actual</span></div>
+          </div>
+          <div class="db-col-row">
+            <span class="db-col-icon en">EN</span>
+            <div><span class="db-col-name">tipo_solicitud</span><span class="db-col-type">ENUM · NOT NULL</span><span class="db-col-desc">Categoría de solicitud</span></div>
+          </div>
+          <div class="db-col-row">
+            <span class="db-col-icon va">VA</span>
+            <div><span class="db-col-name">fecha_creacion</span><span class="db-col-type">DATETIME · NOT NULL</span><span class="db-col-desc">Timestamp de creación</span></div>
+          </div>
+          <div class="db-col-row">
+            <span class="db-col-icon va">VA</span>
+            <div><span class="db-col-name">comentario</span><span class="db-col-type">TEXT · nullable</span><span class="db-col-desc">Nota del empleado</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  04 — MÓDULOS PRINCIPALES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section class="func-section func-section--alt" id="modulos">
+  <div class="func-num" aria-hidden="true">04</div>
+  <div class="func-container">
+    <div class="func-section-head fade-up-init">
+      <span class="func-tag">Módulos</span>
+      <h2>6 módulos · 15 endpoints REST</h2>
+      <p class="func-section-sub">Cada módulo tiene su vista PHP y su(s) endpoint(s) JSON independientes</p>
+    </div>
+
+    <div class="modules-grid">
+      <div class="module-card">
+        <div class="module-icon">🕐</div>
+        <h3 class="module-name">Fichaje</h3>
+        <span class="module-path">secciones/fichaje/fichajes.php</span>
+        <span class="module-api">POST  secciones/api/fichaje.php</span>
+        <p class="module-desc">Entrada, pausa, reanudación y salida con validación de IP por empresa.</p>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon">📅</div>
+        <h3 class="module-name">Horarios</h3>
+        <span class="module-path">secciones/horario/horarios.php</span>
+        <span class="module-api">GET  obtener_horarios.php · obtener_horarios_admin.php</span>
+        <p class="module-desc">Cuadrante mensual con flujo solicitud → validación → aprobación.</p>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon">📊</div>
+        <h3 class="module-name">Reportes</h3>
+        <span class="module-path">secciones/reportes/reportes.php</span>
+        <span class="module-api">POST  reporte_generar_pdf.php · reporte_anual_generar.php</span>
+        <p class="module-desc">PDFs oficiales RDL 8/2019 y exportación a Excel con un clic.</p>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon">👥</div>
+        <h3 class="module-name">Empleados</h3>
+        <span class="module-path">secciones/empleados/empleados.php</span>
+        <span class="module-api">POST  empleado_eliminar.php · empleado_actualizar.php</span>
+        <p class="module-desc">CRUD completo: contratos, horas pactadas y vacaciones acumuladas.</p>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon">🤖</div>
+        <h3 class="module-name">Chatbot IA</h3>
+        <span class="module-path">panel.php (widget flotante)</span>
+        <span class="module-api">POST  secciones/ia/ia_handler.php</span>
+        <p class="module-desc">Claude Sonnet vía API Anthropic · contexto de sección · system prompt legislativo.</p>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon">🎫</div>
+        <h3 class="module-name">Tickets</h3>
+        <span class="module-path">secciones/tickets/ (implícito en panel)</span>
+        <span class="module-api">RRHH ↔ empleado · estados y hilo de conversación</span>
+        <p class="module-desc">Incidencias con estados y conversación anidada entre RRHH y empleado.</p>
+      </div>
+    </div>
+
+    <!-- System prompt del chatbot IA -->
+    <div class="system-prompt-block code-block">
+      <div class="code-block-header">
+        <span class="code-lang-dot php"></span>
+        secciones/ia/ia_handler.php — System prompt (extracto)
+      </div>
+      <pre><code><span class="var">$systemPrompt</span> = <span class="str">"Eres el asistente virtual de FesolCheck.
+REGLAS:
+  - Máximo 5 frases por respuesta.
+  - Solo respondes sobre FesolCheck y legislación laboral española.
+  - Referencias normativas: RDL 8/2019 · ET art. 34-35 · LISOS.
+  - NUNCA reveles: credenciales, rutas internas ni datos de otros usuarios.
+CONTEXTO ACTUAL: {<span class="var">$contextoSeccion</span>}"</span>;
+
+<span class="cm">// Llamada a la API de Anthropic (Claude Sonnet)</span>
+<span class="var">$response</span> = <span class="var">$client</span>-&gt;<span class="fn">messages</span>()-&gt;<span class="fn">create</span>([
+  <span class="str">'model'</span>      =&gt; <span class="str">'claude-sonnet-4-5'</span>,
+  <span class="str">'max_tokens'</span> =&gt; <span class="num">512</span>,
+  <span class="str">'system'</span>     =&gt; <span class="var">$systemPrompt</span>,
+  <span class="str">'messages'</span>   =&gt; <span class="var">$conversacion</span>,
+]);</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  05 — TESTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section class="func-section" id="testing">
+  <div class="func-num" aria-hidden="true">05</div>
+  <div class="func-container">
+    <div class="func-section-head fade-up-init">
+      <span class="func-tag">Testing</span>
+      <h2>Capturas del sistema en funcionamiento</h2>
+      <p class="func-section-sub">Pruebas funcionales realizadas sobre entorno de desarrollo real</p>
+    </div>
+
+    <!-- Tabs de testing -->
+    <div class="tabs-bar" data-tab-group="testing" role="tablist">
+      <button class="tab-btn" data-tab="admin" role="tab" aria-selected="true">Panel Admin</button>
+      <button class="tab-btn" data-tab="fichaje" role="tab">Módulo Fichaje</button>
+      <button class="tab-btn" data-tab="reportes" role="tab">Reportes &amp; Nóminas</button>
+      <button class="tab-btn" data-tab="movil" role="tab">Responsive / Móvil</button>
+    </div>
+
+    <!-- Panel Admin -->
+    <div class="tab-panel" data-tab-group="testing" data-tab-id="admin" role="tabpanel">
+      <div class="img-masonry">
+        <div class="img-item" tabindex="0" role="button" aria-label="Ver login">
+          <img src="../img/login.png" alt="Login de FesolCheck" loading="lazy">
+          <div class="img-caption">login.png</div>
+        </div>
+        <div class="img-item" tabindex="0" role="button" aria-label="Ver gestión de empleados">
+          <img src="../img/gestion_empleados.png" alt="Gestión de empleados" loading="lazy">
+          <div class="img-caption">gestion_empleados.png</div>
+        </div>
+        <div class="img-item" tabindex="0" role="button" aria-label="Ver asistente IA">
+          <img src="../img/asistente_ia.png" alt="Chatbot IA integrado" loading="lazy">
+          <div class="img-caption">asistente_ia.png</div>
+        </div>
+        <div class="img-item" tabindex="0" role="button" aria-label="Ver acceso por IP">
+          <img src="../img/acceso_ip_escritorio.png" alt="Control de acceso por IP" loading="lazy">
+          <div class="img-caption">acceso_ip_escritorio.png</div>
+        </div>
+        <div class="img-item" tabindex="0" role="button" aria-label="Ver gestor de tickets">
+          <img src="../img/gestor_tickest_escritorio.png" alt="Gestor de tickets RRHH" loading="lazy">
+          <div class="img-caption">gestor_tickets_escritorio.png</div>
+        </div>
+        <div class="img-item" tabindex="0" role="button" aria-label="Ver creador de plantillas">
+          <img src="../img/Creador_plantillas_jornada.png" alt="Creador de plantillas de jornada" loading="lazy">
+          <div class="img-caption">Creador_plantillas_jornada.png</div>
+        </div>
+        <div class="img-item" tabindex="0" role="button" aria-label="Ver cuadrante">
+          <img src="../img/cuadrante_escritorio.png" alt="Cuadrante de horarios" loading="lazy">
+          <div class="img-caption">cuadrante_escritorio.png</div>
+        </div>
+        <div class="img-item" tabindex="0" role="button" aria-label="Ver calendario">
+          <img src="../img/calendario_escritorio.png" alt="Calendario mensual" loading="lazy">
+          <div class="img-caption">calendario_escritorio.png</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Módulo Fichaje -->
+    <div class="tab-panel" data-tab-group="testing" data-tab-id="fichaje" role="tabpanel">
+      <div class="img-masonry">
+        <div class="img-item" tabindex="0" role="button" aria-label="Ver fichaje escritorio">
+          <img src="../img/fichaje_escritorio.png" alt="Módulo de fichaje en escritorio" loading="lazy">
+          <div class="img-caption">fichaje_escritorio.png</div>
+        </div>
+        <div class="img-item" tabindex="0" role="button" aria-label="Ver modificación de fichaje">
+          <img src="../img/modificar_fichaje_escritorio.png" alt="Modificar fichaje admin" loading="lazy">
+          <div class="img-caption">modificar_fichaje_escritorio.png</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reportes & Nóminas -->
+    <div class="tab-panel" data-tab-group="testing" data-tab-id="reportes" role="tabpanel">
+      <div class="img-masonry">
+        <div class="img-item" tabindex="0" role="button" aria-label="Ver gestor de nóminas">
+          <img src="../img/gestor_nominas_documeto_escritorio.png" alt="Gestor de nóminas y documentos" loading="lazy">
+          <div class="img-caption">gestor_nominas_documento_escritorio.png</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Responsive / Móvil -->
+    <div class="tab-panel" data-tab-group="testing" data-tab-id="movil" role="tabpanel">
+      <div class="img-masonry">
+        <div class="img-item" tabindex="0" role="button" aria-label="Ver fichaje móvil">
+          <img src="../img/fichaje_movil.png" alt="Fichaje desde móvil" loading="lazy">
+          <div class="img-caption">fichaje_movil.png</div>
+        </div>
+        <div class="img-item" tabindex="0" role="button" aria-label="Ver calendario móvil">
+          <img src="../img/calendario_movil.png" alt="Calendario en móvil" loading="lazy">
+          <div class="img-caption">calendario_movil.png</div>
+        </div>
+        <div class="img-item" tabindex="0" role="button" aria-label="Ver cuadrante móvil">
+          <img src="../img/cuadrante_movil.png" alt="Cuadrante de horarios en móvil" loading="lazy">
+          <div class="img-caption">cuadrante_movil.png</div>
+        </div>
+        <div class="img-item" tabindex="0" role="button" aria-label="Ver modificar fichaje móvil">
+          <img src="../img/modificar_fichaje_movil.png" alt="Modificar fichaje desde móvil" loading="lazy">
+          <div class="img-caption">modificar_fichaje_movil.png</div>
+        </div>
+        <div class="img-item" tabindex="0" role="button" aria-label="Ver tickets móvil">
+          <img src="../img/tickest_movil.png" alt="Gestión de tickets en móvil" loading="lazy">
+          <div class="img-caption">tickets_movil.png</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  06 — DOCUMENTACIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<section class="func-section func-section--alt" id="documentacion">
+  <div class="func-num" aria-hidden="true">06</div>
+  <div class="func-container">
+    <div class="func-section-head fade-up-init">
+      <span class="func-tag">Documentación</span>
+      <h2>Código documentado · PHPDoc + JSDoc</h2>
+      <p class="func-section-sub">Cada función pública con parámetros tipados, descripción y ejemplo de uso</p>
+    </div>
+
+    <div class="doc-grid">
+      <!-- Panel PHPDoc -->
+      <div class="doc-panel">
+        <div class="doc-panel-tabs">
+          <button class="doc-tab-btn doc-tab-active" data-doc-tab="php">PHPDoc</button>
+        </div>
+        <div class="doc-code-wrap">
+          <div class="doc-tab-pane" data-doc-pane="php">
+            <pre><code><span class="cm">/**
+ * Obtiene el calendario de horarios de un
+ * usuario para un mes dado.
+ *
+ * Combina horarios aprobados (tabla HORARIOS)
+ * con solicitudes pendientes o rechazadas
+ * (SOLICITUDES_HORARIO + DETALLE_SOLICITUD).
+ *
+ * @param  PDO  $pdo        Conexión activa
+ * @param  int  $idUsuario  ID del empleado
+ * @param  int  $idEmpresa  ID de la empresa
+ * @param  int  $mes        Mes (1–12)
+ * @param  int  $anio       Año (ej. 2026)
+ * @return array&lt;string, array&gt;
+ *   Mapa fecha → tramos de jornada.
+ *   Cada tramo: tipo_jornada, hora_inicio,
+ *   hora_fin, horas_totales, estado, editable
+ */</span>
+<span class="kw">function</span> <span class="fn">obtenerCalendario</span>(
+    PDO <span class="var">$pdo</span>,
+    <span class="kw">int</span> <span class="var">$idUsuario</span>,
+    <span class="kw">int</span> <span class="var">$idEmpresa</span>,
+    <span class="kw">int</span> <span class="var">$mes</span>,
+    <span class="kw">int</span> <span class="var">$anio</span>
+): <span class="kw">array</span> {
+    <span class="cm">// implementación...</span>
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel JSDoc -->
+      <div class="doc-panel">
+        <div class="doc-panel-tabs">
+          <button class="doc-tab-btn doc-tab-active" data-doc-tab="js">JSDoc</button>
+        </div>
+        <div class="doc-code-wrap">
+          <div class="doc-tab-pane" data-doc-pane="js">
+            <pre><code><span class="cm">/**
+ * Carga los tipos de jornada en un &lt;select&gt;.
+ * Incluye genéricos + plantillas custom.
+ *
+ * @async
+ * @param  {string|string[]|Element} selectores
+ * @param  {Object}  opciones
+ * @param  {boolean} [opciones.mostrarProductivos=true]
+ * @param  {boolean} [opciones.mostrarNoProductivos=true]
+ * @param  {boolean} [opciones.incluirCustom=true]
+ * @returns {Promise&lt;void&gt;}
+ *
+ * @example
+ * await cargarTiposJornada(
+ *   ['#tipo-manana', '#tipo-tarde'],
+ *   { mostrarNoProductivos: false }
+ * );
+ */</span>
+window.<span class="fn">cargarTiposJornada</span> =
+  <span class="kw">async function</span>(selectores, opciones = {}) {
+    <span class="kw">const</span> {
+      mostrarProductivos    = <span class="num">true</span>,
+      mostrarNoProductivos  = <span class="num">true</span>,
+      incluirCustom         = <span class="num">true</span>
+    } = opciones;
+    <span class="cm">// implementación...</span>
+  };</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Métricas de código -->
+    <div class="code-metrics">
+      <div class="code-metric-card">
+        <span class="metric-num">~2.400</span>
+        <span class="metric-label">líneas PHP</span>
+      </div>
+      <div class="code-metric-card">
+        <span class="metric-num">~1.800</span>
+        <span class="metric-label">líneas JavaScript</span>
+      </div>
+      <div class="code-metric-card">
+        <span class="metric-num">~3.200</span>
+        <span class="metric-label">líneas CSS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━━━━ FOOTER ━━━━━━ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo footer-logo">
+          <div class="logo-mark">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2L3 6v4c0 3.866 3.13 7.52 7 8.5 3.87-.98 7-4.634 7-8.5V6L10 2z" fill="#2DD4BF"/>
+              <path d="M7 10l2 2 4-4" stroke="#1E3A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="logo-name">Fesol<em>Check</em></span>
+        </a>
+        <p class="footer-desc">Software de control horario y RRHH para pymes españolas. Cumplimiento total del RDL 8/2019.</p>
+        <div class="footer-live"><div class="live-dot"></div>En desarrollo activo — nuevas funcionalidades cada trimestre</div>
+      </div>
+      <div class="footer-col">
+        <h4>Producto</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="funcionalidades.html">Funcionalidades</a></li>
+          <li><a href="precios.html">Precios</a></li>
+          <li><a href="funcionamiento.html">Cómo funciona</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="aviso-legal.html">Aviso Legal</a></li>
+          <li><a href="privacidad.html">Política de Privacidad</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:hola@fesolcheck.es">hola@fesolcheck.es</a></li>
+          <li><a href="tel:+34910000000">+34 910 000 000</a></li>
+          <li><a href="index.html" onclick="event.preventDefault();tryOpenModal();">Solicitar demo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 FesolCheck. Todos los derechos reservados.</p>
+      <div class="footer-legal">
+        <a href="aviso-legal.html">Aviso Legal</a>
+        <a href="privacidad.html">Política de Privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ━━━━━━ MODAL DE CONTACTO ━━━━━━ -->
+<div id="modal-contacto" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-card">
+    <button class="modal-close" aria-label="Cerrar">✕</button>
+    <div class="modal-header">
+      <span class="modal-badge">Demo gratuita</span>
+      <h2 id="modal-title">Empieza con FesolCheck hoy</h2>
+      <p>Sin tarjeta de crédito. Sin instalaciones. Te contactamos en 24 h.</p>
+    </div>
+    <form id="form-contacto" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fc-nombre">Nombre *</label>
+          <input id="fc-nombre" name="nombre" type="text" required placeholder="Tu nombre">
+        </div>
+        <div class="form-group">
+          <label for="fc-empresa">Empresa *</label>
+          <input id="fc-empresa" name="empresa" type="text" required placeholder="Nombre de tu empresa">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fc-email">Email corporativo *</label>
+          <input id="fc-email" name="email" type="email" required placeholder="tu@empresa.com">
+        </div>
+        <div class="form-group">
+          <label for="fc-telefono">Teléfono</label>
+          <input id="fc-telefono" name="telefono" type="tel" placeholder="+34 600 000 000">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fc-empleados">Número de empleados *</label>
+        <select id="fc-empleados" name="num_empleados" required>
+          <option value="">Selecciona un rango</option>
+          <option value="1-10">1 – 10 empleados</option>
+          <option value="11-50">11 – 50 empleados</option>
+          <option value="51-200">51 – 200 empleados</option>
+          <option value="200+">Más de 200</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fc-mensaje">¿Qué necesitas? (opcional)</label>
+        <textarea id="fc-mensaje" name="mensaje" rows="3" placeholder="Cuéntanos tu situación actual..."></textarea>
+      </div>
+      <div class="form-check">
+        <input id="fc-privacidad" name="privacidad" type="checkbox" required>
+        <label for="fc-privacidad">
+          Acepto la <a href="privacidad.html" target="_blank">política de privacidad</a>
+        </label>
+      </div>
+      <button type="submit" class="btn-submit">Solicitar demo gratuita →</button>
+      <p class="form-footer">✓ Respuesta en menos de 24 h &nbsp;·&nbsp; ✓ Sin compromiso</p>
+    </form>
+    <div id="form-success" class="form-success hidden">
+      <div class="success-icon">✓</div>
+      <h3>¡Solicitud recibida!</h3>
+      <p>Te contactaremos en menos de 24 horas. Revisa también tu carpeta de spam.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ━━━━━━ LIGHTBOX ━━━━━━ -->
+<div id="lightbox" class="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <button id="lightbox-close" class="lightbox-close" aria-label="Cerrar">✕</button>
+  <img id="lightbox-img" class="lightbox-img" src="" alt="">
+</div>
+
+<!-- ━━━━━━ SCRIPTS ━━━━━━ -->
+<script src="js/navbar.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/scroll-animations.js"></script>
+<script src="js/funcionamiento.js"></script>
+</body>
+</html>
