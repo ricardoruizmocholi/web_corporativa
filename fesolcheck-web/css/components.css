@@ -23,6 +23,8 @@
 .btn-dark:hover    { background: var(--c-primary-dk); }
 .btn-lg { padding: 15px 34px; font-size: 1rem; border-radius: var(--radius-md); }
 .btn-full { width: 100%; justify-content: center; }
+.btn-login        { background: transparent; color: var(--c-primary); border: 1.5px solid var(--c-border); }
+.btn-login:hover  { background: var(--c-primary); color: var(--c-surface); border-color: var(--c-primary); transform: translateY(-1px); }
 
 /* ══════════════════════════════════════
    BADGES & PILLS
