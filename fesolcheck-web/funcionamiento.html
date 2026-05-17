@@ -161,25 +161,65 @@
             <span class="tree-conn">├── </span>
             <span class="tree-entry tree-folder" data-tooltip="Módulos de vista (PHP)">📁 secciones/</span>
           </li>
-          <li class="tree-item">
+          <li class="tree-item tree-folder">
             <span class="tree-conn">│&nbsp;&nbsp; ├── </span>
-            <span class="tree-entry tree-php" data-tooltip="Módulo de fichaje de empleados">📄 fichaje/fichajes.php</span>
+            <span class="tree-entry tree-api" data-tooltip="15 endpoints REST · todos devuelven JSON">📁 fichaje/</span>
           </li>
           <li class="tree-item">
-            <span class="tree-conn">│&nbsp;&nbsp; ├── </span>
-            <span class="tree-entry tree-php" data-tooltip="Cuadrantes y solicitudes de horario">📄 horario/horarios.php</span>
+            <span class="tree-conn">│&nbsp;&nbsp; │&nbsp;&nbsp; ├── </span>
+            <span class="tree-entry tree-api" data-tooltip="GET · Horarios del empleado autenticado">📄 fichajes.php </span>
           </li>
           <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp; │&nbsp;&nbsp; └── </span>
+            <span class="tree-entry tree-api" data-tooltip="GET · Vista admin de todos los horarios">📄 [+7 endpoints]</span>
+          </li>
+          <li class="tree-item tree-folder">
             <span class="tree-conn">│&nbsp;&nbsp; ├── </span>
-            <span class="tree-entry tree-php" data-tooltip="Generación de reportes PDF (RDL 8/2019) y Excel">📄 reportes/reportes.php</span>
+            <span class="tree-entry tree-api" data-tooltip="15 endpoints REST · todos devuelven JSON">📁 horario/</span>
           </li>
           <li class="tree-item">
-            <span class="tree-conn">│&nbsp;&nbsp; ├── </span>
-            <span class="tree-entry tree-php" data-tooltip="CRUD completo de empleados">📄 empleados/empleados.php</span>
+            <span class="tree-conn">│&nbsp;&nbsp; │&nbsp;&nbsp; ├── </span>
+            <span class="tree-entry tree-api" data-tooltip="GET · Horarios del empleado autenticado">📄 horarios.php </span>
           </li>
           <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp; │&nbsp;&nbsp; └── </span>
+            <span class="tree-entry tree-api" data-tooltip="GET · Vista admin de todos los horarios">📄 [+10 endpoints]</span>
+          </li>
+          <li class="tree-item tree-folder">
             <span class="tree-conn">│&nbsp;&nbsp; ├── </span>
-            <span class="tree-entry tree-php" data-tooltip="Gestión y subida de nóminas PDF">📄 nominas/nominas_admin.php</span>
+            <span class="tree-entry tree-api" data-tooltip="15 endpoints REST · todos devuelven JSON">📁 reportes/ </span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp; │&nbsp;&nbsp; ├── </span>
+            <span class="tree-entry tree-api" data-tooltip="GET · Horarios del empleado autenticado">📄 reportes.php </span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp; │&nbsp;&nbsp; └── </span>
+            <span class="tree-entry tree-api" data-tooltip="GET · Vista admin de todos los horarios">📄 [+7 endpoints]</span>
+          </li>
+          <li class="tree-item tree-folder">
+            <span class="tree-conn">│&nbsp;&nbsp; ├── </span>
+            <span class="tree-entry tree-api" data-tooltip="15 endpoints REST · todos devuelven JSON">📁 empleados/ </span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp; │&nbsp;&nbsp; ├── </span>
+            <span class="tree-entry tree-api" data-tooltip="GET · Horarios del empleado autenticado">📄 empleados_lista.php </span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp; │&nbsp;&nbsp; └── </span>
+            <span class="tree-entry tree-api" data-tooltip="GET · Vista admin de todos los horarios">📄 [+7 endpoints]</span>
+          </li>
+          <li class="tree-item tree-folder">
+            <span class="tree-conn">│&nbsp;&nbsp; ├── </span>
+            <span class="tree-entry tree-api" data-tooltip="15 endpoints REST · todos devuelven JSON">📁 nominas/ </span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp; │&nbsp;&nbsp; ├── </span>
+            <span class="tree-entry tree-api" data-tooltip="GET · Horarios del empleado autenticado">📄 nominas_admin.php </span>
+          </li>
+          <li class="tree-item">
+            <span class="tree-conn">│&nbsp;&nbsp; │&nbsp;&nbsp; └── </span>
+            <span class="tree-entry tree-api" data-tooltip="GET · Vista admin de todos los horarios">📄 mis_nominas.php</span>
           </li>
           <li class="tree-item"><span class="tree-conn">│&nbsp;&nbsp; │</span></li>
           <li class="tree-item tree-folder">
@@ -593,14 +633,15 @@
         <text x="670" y="410" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#94A3B8">+ EMPRESA_IPS_AUTORIZADAS</text>
 
         <!-- Relaciones DOCS → USUARIO -->
-        <line x1="110" y1="306" x2="110" y2="338" stroke="#94A3B8" stroke-width="1" marker-end="url(#fk-arr)"/>
+        <line x1="110" y1="290" x2="110" y2="338" stroke="#94A3B8" stroke-width="1" marker-end="url(#fk-arr)"/>
         <line x1="340" y1="306" x2="340" y2="338" stroke="#94A3B8" stroke-width="1" marker-end="url(#fk-arr)"/>
         <line x1="538" y1="260" x2="538" y2="338" stroke="#94A3B8" stroke-width="1" marker-end="url(#fk-arr)"/>
 
         <!-- Relación SOLICITUDES → USUARIO -->
         <line x1="650" y1="85" x2="630" y2="85" stroke="#F59E0B" stroke-width="1"/>
-        <line x1="630" y1="85" x2="630" y2="110" stroke="#F59E0B" stroke-width="1"/>
-        <line x1="200" y1="110" x2="630" y2="110" stroke="#F59E0B" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="630" y1="85" x2="630" y2="25" stroke="#F59E0B" stroke-width="1"/>
+        <line x1="170" y1="25" x2="630" y2="25" stroke="#F59E0B" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="170" y1="35" x2="170" y2="25" stroke="#F59E0B" stroke-width="1"/>
         <text x="415" y="106" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" fill="#F59E0B">FK id_usuario</text>
 
         <!-- Leyenda -->
@@ -612,7 +653,7 @@
         <text x="240" y="494" font-family="JetBrains Mono,monospace" font-size="9" fill="#F59E0B">🔑 PK</text>
         <text x="285" y="494" font-family="JetBrains Mono,monospace" font-size="9" fill="#60A5FA">🔗 FK</text>
         <text x="330" y="494" font-family="JetBrains Mono,monospace" font-size="9" fill="#4ADE80">■ ENUM</text>
-        <text x="620" y="494" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="9" fill="#94A3B8">Motor: InnoDB · charset: utf8mb4 · 16 tablas totales</text>
+        <text x="670" y="494" text-anchor="end" font-family="JetBrains Mono,monospace" font-size="9" fill="#94A3B8">Motor: InnoDB · charset: utf8mb4 · 16 tablas totales</text>
       </svg>
     </div>
 
@@ -732,7 +773,6 @@
 
     <div class="modules-grid">
       <div class="module-card">
-        <div class="module-icon">🕐</div>
         <h3 class="module-name">Fichaje</h3>
         <span class="module-path">secciones/fichaje/fichajes.php</span>
         <span class="module-api">POST  secciones/api/fichaje.php</span>
@@ -740,7 +780,6 @@
       </div>
 
       <div class="module-card">
-        <div class="module-icon">📅</div>
         <h3 class="module-name">Horarios</h3>
         <span class="module-path">secciones/horario/horarios.php</span>
         <span class="module-api">GET  obtener_horarios.php · obtener_horarios_admin.php</span>
@@ -748,7 +787,6 @@
       </div>
 
       <div class="module-card">
-        <div class="module-icon">📊</div>
         <h3 class="module-name">Reportes</h3>
         <span class="module-path">secciones/reportes/reportes.php</span>
         <span class="module-api">POST  reporte_generar_pdf.php · reporte_anual_generar.php</span>
@@ -756,7 +794,6 @@
       </div>
 
       <div class="module-card">
-        <div class="module-icon">👥</div>
         <h3 class="module-name">Empleados</h3>
         <span class="module-path">secciones/empleados/empleados.php</span>
         <span class="module-api">POST  empleado_eliminar.php · empleado_actualizar.php</span>
@@ -764,7 +801,6 @@
       </div>
 
       <div class="module-card">
-        <div class="module-icon">🤖</div>
         <h3 class="module-name">Chatbot IA</h3>
         <span class="module-path">panel.php (widget flotante)</span>
         <span class="module-api">POST  secciones/ia/ia_handler.php</span>
@@ -772,7 +808,6 @@
       </div>
 
       <div class="module-card">
-        <div class="module-icon">🎫</div>
         <h3 class="module-name">Tickets</h3>
         <span class="module-path">secciones/tickets/ (implícito en panel)</span>
         <span class="module-api">RRHH ↔ empleado · estados y hilo de conversación</span>
